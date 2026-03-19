@@ -1,0 +1,21 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(255, 120, 100, 1);
+}
+
+/* Comentario */
+header {
+    background-color: rgba(200, 100, 120, .8);
+    color: white;
+}
+
+header, main, footer {
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    background-color: rgba(255, 255, 255, .4);
+}
