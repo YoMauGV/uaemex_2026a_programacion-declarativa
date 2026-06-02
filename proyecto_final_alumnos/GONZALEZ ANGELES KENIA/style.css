@@ -1,0 +1,219 @@
+/* reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* fondo general */
+body {
+  background: linear-gradient(135deg, #f5f0ff, #fff5e6);
+  font-family: Arial, sans-serif;
+  color: #333;
+  padding: 15px;
+  min-height: 100vh;
+}
+
+/* contenedor principal */
+.contenedor {
+  max-width: 1600px;
+  margin: auto;
+  width: 100%;
+}
+
+/* título */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #5a4a7d;
+}
+
+/* barra de controles */
+.controles {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  gap: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+/* inputs y botones */
+input,
+select,
+button {
+  padding: 8px 12px;
+  border: 2px solid #e0d4f7;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background: #fff;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* foco limpio */
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #d4a8e0;
+}
+
+/* botón limpiar */
+button {
+  background: #d4a8e0;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+}
+
+/* hover botón */
+button:hover {
+  background: #c494d0;
+}
+
+/* grid tabla periódica */
+.tabla {
+  display: grid;
+  grid-template-columns: repeat(18, 1fr);
+  gap: 4px;
+  padding: 15px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
+}
+
+/* celda elemento */
+.elemento {
+  aspect-ratio: 1;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  padding: 5px;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* hover */
+.elemento:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* números */
+.numero {
+  font-size: 0.6rem;
+  opacity: 0.7;
+}
+.simbolo {
+  font-size: 1.3rem;
+}
+.nombre {
+  font-size: 0.65rem;
+  opacity: 0.85;
+}
+
+/*COLORES*/
+
+/* no metales */
+.no-metal {
+  background: #c8e6c9;
+  color: #2e7d32;
+}
+
+/* metales */
+.metal {
+  background: #ffccb3;
+  color: #d84315;
+}
+
+/* metaloides */
+.metaloide {
+  background: #f8bbd0;
+  color: #c2185b;
+}
+
+/* halógenos */
+.halogeno {
+  background: #ffcccc;
+  color: #d32f2f;
+}
+
+/* gases nobles */
+.gas-noble {
+  background: #b3e5fc;
+  color: #0277bd;
+}
+
+/* transición */
+.metal-transicion {
+  background: #e1bee7;
+  color: #6a1b9a;
+}
+
+/* modal overlay */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
+
+/* caja modal */
+.box {
+  background: #fffbf0;
+  width: 90%;
+  max-width: 700px;
+  margin: 5% auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* cerrar modal */
+#cerrar {
+  float: right;
+  cursor: pointer;
+  font-size: 28px;
+  color: #aaa;
+}
+
+#cerrar:hover {
+  color: #333;
+}
+
+/* detalle */
+#detalle {
+  clear: both;
+  margin-top: 10px;
+}
+
+/* responsive simple */
+@media (max-width: 768px) {
+  .tabla {
+    grid-template-columns: repeat(10, 1fr);
+  }
+  .elemento {
+    font-size: 0.65rem;
+  }
+  .simbolo {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tabla {
+    grid-template-columns: repeat(8, 1fr);
+  }
+  .nombre {
+    display: none;
+  }
+}

@@ -1,0 +1,205 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(90deg, #2a7b9b, #57c785, #eddd53);
+  color: #111;
+  padding: 20px;
+}
+
+.encabezado {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.contenedor-principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.contenedor-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 1000px;
+  margin: auto;
+  padding: 12px;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
+}
+
+.btn-filtro {
+  background-color: #2c2cc2;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-filtro:hover {
+  transform: translateY(-2px);
+  background-color: #1a1aff;
+}
+
+.btn-filtro.active {
+  background-color: #00ffff;
+  color: #111;
+}
+
+.tabla-periodica {
+  display: grid;
+  grid-template-columns: repeat(18, minmax(50px, 1fr));
+  gap: 6px;
+  width: 100%;
+  padding: 15px;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  overflow-x: auto;
+}
+
+.cuadro-elemento {
+  border-radius: 8px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  min-height: 55px;
+  aspect-ratio: 1 / 1;
+}
+
+.cuadro-elemento:hover {
+  transform: scale(1.15);
+  z-index: 10;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.num-atomico {
+  font-size: 11px;
+  align-self: flex-start;
+  opacity: 0.8;
+}
+
+.simbolo {
+  font-size: 18px;
+  margin: 2px 0;
+}
+
+.nombre-elemento {
+  font-size: 9px;
+  font-weight: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  text-align: center;
+}
+
+.metal-alcalino {
+  background: #e74c3c;
+  color: white;
+}
+.alcalinoterreo {
+  background: #e67e22;
+  color: white;
+}
+.metal-post-transicion {
+  background-color: #95a5a6;
+  color: black;
+}
+.metal-transicion {
+  background: #f1c40f;
+  color: #111;
+}
+.desconocido {
+  background: #3498db;
+  color: white;
+}
+.metaloide {
+  background: #9b59b6;
+  color: white;
+}
+.no-metal {
+  background: #2ecc71;
+  color: #111;
+}
+.halogeno {
+  background: #1abc9c;
+  color: white;
+}
+.gas-noble {
+  background: #a3ff66;
+  color: #111;
+}
+.lantanido {
+  background: #f39c12;
+  color: white;
+}
+.actinido {
+  background: #95a5a6;
+  color: white;
+}
+
+.tarjeta-libreta {
+  background: #fffdf0;
+  color: #2c3e50;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+  border-left: 15px solid #2a7b9b;
+}
+
+.tarjeta-libreta h2 {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px dashed #bdc3c7;
+}
+
+.tarjeta-libreta p {
+  margin: 12px 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .btn-filtro {
+    font-size: 0.75rem;
+    padding: 6px 10px;
+  }
+
+  .tabla-periodica {
+    grid-template-columns: repeat(18, minmax(40px, 1fr));
+  }
+}

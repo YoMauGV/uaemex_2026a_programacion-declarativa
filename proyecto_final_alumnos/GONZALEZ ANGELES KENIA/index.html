@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabla Periódica</title>
+    <link rel="stylesheet" href="../../../../Working%20files/KENIA%20GONZALEZ%20ANGELES/Proyecto%20Final/style.css" />
+  </head>
+  <body>
+    <!-- contenedor principal -->
+    <div class="contenedor">
+      <!-- título -->
+      <h1>Tabla Periódica</h1>
+
+      <!-- barra de controles -->
+      <div class="controles">
+        <!-- búsqueda global -->
+        <input id="buscar" placeholder="Buscar" />
+
+        <!-- filtro por tipo -->
+        <select id="filtroTipo">
+          <option value="">Tipo</option>
+        </select>
+
+        <!-- filtro por periodo -->
+        <select id="filtroPeriodo">
+          <option value="">Periodo</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+        </select>
+
+        <!-- reset filtros -->
+        <button id="limpiar">Limpiar</button>
+      </div>
+
+      <!-- grid tabla periódica -->
+      <div id="tabla" class="tabla"></div>
+    </div>
+
+    <!-- modal detalle elemento -->
+    <div id="modal" class="modal">
+      <div class="box">
+        <!-- cerrar modal -->
+        <span id="cerrar">&times;</span>
+
+        <!-- contenido dinámico -->
+        <div id="detalle"></div>
+      </div>
+    </div>
+
+    <script src="../../../../Working%20files/KENIA%20GONZALEZ%20ANGELES/Proyecto%20Final/main.js"></script>
+  </body>
+</html>

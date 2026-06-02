@@ -1,0 +1,242 @@
+:root { /* Variables globales del diseño */
+  --fondo: #a891ce; /* Fondo principal */
+  --panel: #65547c; /* Panel oscuro */
+  --panel2: #785e9c; /* Panel secundario */
+  --borde: #8f6abb; /* Bordes lilas */
+  --texto: #fff8ff; /* Texto principal */
+  --suave: #d8c6ec; /* Texto secundario */
+  --acento: #ead7ff; /* Acento lila claro */
+  --alcalino: #f0dcff; /* Lila categoría */
+  --alcalinoterreo: #e6c8ff; /* Lila categoría */
+  --transicion: #d7b4ff; /* Lila categoría */
+  --otros: #cba2f5; /* Lila categoría */
+  --metaloide: #c0a6ff; /* Lila categoría */
+  --no-metal: #d8bbff; /* Lila categoría */
+  --halogeno: #efceff; /* Lila categoría */
+  --gas-noble: #f7ddff; /* Lila categoría */
+  --lantanido: #c9b8ff; /* Lila categoría */
+  --actinido: #b99be8; /* Lila categoría */
+}
+
+* { /* Selector universal */
+  box-sizing: border-box; /* Evita desbordes por padding */
+}
+
+body { /* Cuerpo de página */
+  margin: 0; /* Elimina margen por defecto */
+  min-height: 100vh; /* Altura mínima completa */
+  color: var(--texto); /* Color del texto */
+  font-family: "Segoe UI", Arial, sans-serif; /* Fuente técnica */
+  background: radial-gradient(circle at top, #41285f 0, var(--fondo) 58%); /* Fondo degradado */
+}
+
+.encabezado { /* Encabezado superior */
+  text-align: center; /* Centra textos */
+  padding: 34px 16px 18px; /* Espaciado interno */
+}
+
+.encabezado h1 { /* Título principal */
+  margin: 0; /* Quita margen */
+  color: var(--acento); /* Color lila claro */
+  font-size: clamp(2rem, 5vw, 4rem); /* Tamaño adaptable */
+  text-shadow: 0 0 18px rgba(234, 215, 255, .4); /* Brillo suave */
+}
+
+.encabezado p { /* Subtítulo */
+  margin: 8px 0 0; /* Separación superior */
+  color: var(--suave); /* Texto secundario */
+}
+
+.contenedor { /* Contenedor central */
+  width: min(1500px, 96vw); /* Ancho máximo */
+  margin: auto; /* Centrado horizontal */
+}
+
+.panel-filtros { /* Panel de controles */
+  display: grid; /* Activa grid */
+  grid-template-columns: repeat(5, minmax(150px, 1fr)); /* Cinco columnas */
+  gap: 16px; /* Separación */
+  padding: 20px; /* Relleno interno */
+  background: rgba(255, 255, 255, .09); /* Fondo translúcido */
+  border: 1px solid var(--borde); /* Borde lila */
+  border-radius: 12px; /* Esquinas redondeadas */
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .35); /* Sombra */
+}
+
+label { /* Etiquetas de filtros */
+  display: grid; /* Coloca texto y campo vertical */
+  gap: 8px; /* Espacio interno */
+  color: var(--acento); /* Color de etiqueta */
+  font-weight: 700; /* Grosor */
+}
+
+select,
+input,
+button { /* Controles del formulario */
+  min-height: 44px; /* Altura estándar */
+  border-radius: 7px; /* Bordes redondeados */
+  border: 1px solid var(--borde); /* Borde lila */
+  padding: 0 12px; /* Espaciado horizontal */
+  font: inherit; /* Hereda fuente */
+}
+
+select,
+input { /* Campos de entrada */
+  color: var(--texto); /* Texto claro */
+  background: #1c122c; /* Fondo oscuro */
+}
+
+button { /* Botones */
+  align-self: end; /* Alinea al final */
+  cursor: pointer; /* Cursor interactivo */
+  color: #604579; /* Texto oscuro */
+  background: var(--acento); /* Fondo lila claro */
+  font-weight: 800; /* Texto fuerte */
+}
+
+#limpiar { /* Botón limpiar */
+  background: #cdb7e8; /* Lila grisáceo */
+}
+
+.leyenda,
+.estado-leyenda { /* Leyendas */
+  display: flex; /* Distribución flexible */
+  flex-wrap: wrap; /* Permite saltos */
+  justify-content: center; /* Centrado */
+  gap: 12px; /* Separación */
+  margin: 14px auto; /* Margen vertical */
+  padding: 12px; /* Relleno */
+  background: rgba(255, 255, 255, .08); /* Fondo translúcido */
+  border-radius: 9px; /* Bordes */
+}
+
+.leyenda span,
+.estado-leyenda { /* Texto de leyendas */
+  font-size: 14px; /* Tamaño */
+  font-weight: 700; /* Grosor */
+}
+
+.leyenda i { /* Cuadro de color */
+  width: 17px; /* Ancho */
+  height: 17px; /* Alto */
+  display: inline-block; /* Elemento en línea */
+  margin-right: 6px; /* Separación */
+  border-radius: 4px; /* Bordes */
+  vertical-align: middle; /* Alineación vertical */
+}
+
+.estado-leyenda { /* Leyenda de estado físico */
+  width: fit-content; /* Ajusta al contenido */
+  padding-inline: 30px; /* Relleno lateral */
+}
+
+.solido { color: #ffffff; } /* Color sólido */
+.liquido { color: #8dbbff; } /* Color líquido */
+.gas { color: #ff86b5; } /* Color gas */
+
+.resumen { /* Mensaje de resultados */
+  text-align: center; /* Centrado */
+  margin: 22px 0; /* Separación */
+  color: var(--acento); /* Lila claro */
+  font-size: 1.35rem; /* Tamaño */
+  font-weight: 800; /* Grosor */
+}
+
+.tabla-periodica { /* Tabla principal */
+  display: grid; /* Activa CSS Grid */
+  grid-template-columns: repeat(18, 72px); /* Columnas fijas */
+  grid-template-rows: repeat(10, 72px); /* Filas fijas */
+  gap: 5px; /* Separación entre celdas */
+  justify-content: start; /* Inicia desde la izquierda */
+  overflow-x: auto; /* Scroll horizontal */
+  overflow-y: hidden; /* Evita scroll vertical interno */
+  padding: 10px 12px 28px; /* Espaciado */
+  max-width: 100%; /* No rebasa pantalla */
+}
+
+.elemento { /* Celda de elemento */
+  border: 1px solid rgba(136, 109, 165, 0.7); /* Borde técnico */
+  border-radius: 8px; /* Bordes redondeados */
+  padding: 5px; /* Espaciado interno */
+  color: #715f81; /* Texto oscuro */
+  cursor: pointer; /* Cursor clic */
+  text-align: center; /* Texto centrado */
+  transition: .18s; /* Animación */
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.35); /* Luz interna */
+}
+
+.elemento:hover { /* Efecto hover */
+  transform: scale(1.08); /* Aumenta tamaño */
+  z-index: 5; /* Se coloca arriba */
+  box-shadow: 0 0 18px rgba(234, 215, 255, .95); /* Brillo */
+}
+
+.numero { /* Número atómico */
+  display: block; /* Bloque independiente */
+  text-align: left; /* Alinea izquierda */
+  font-size: 11px; /* Tamaño pequeño */
+  font-weight: 700; /* Grosor */
+}
+
+.simbolo { /* Símbolo químico */
+  display: block; /* Bloque */
+  font-size: 22px; /* Tamaño grande */
+  font-weight: 900; /* Grosor alto */
+}
+
+.nombre,
+.masa { /* Nombre y masa */
+  display: block; /* Bloque */
+  font-size: 9px; /* Tamaño pequeño */
+  line-height: 1.1; /* Altura compacta */
+}
+
+.apagado { /* Elementos fuera del filtro */
+  opacity: .12; /* Baja visibilidad */
+  filter: grayscale(1); /* Escala gris */
+}
+
+.metal-alcalino { background: var(--alcalino); } /* Alcalinos */
+.alcalinoterreo { background: var(--alcalinoterreo); } /* Alcalinotérreos */
+.metal-transicion { background: var(--transicion); } /* Transición */
+.metal-post-transicion { background: var(--otros); } /* Otros metales */
+.metaloide { background: var(--metaloide); } /* Metaloides */
+.no-metal { background: var(--no-metal); } /* No metales */
+.halogeno { background: var(--halogeno); } /* Halógenos */
+.gas-noble { background: var(--gas-noble); } /* Gases nobles */
+.lantanido { background: var(--lantanido); } /* Lantánidos */
+.actinido { background: var(--actinido); } /* Actínidos */
+
+.modal-elemento { /* Ventana modal */
+  width: min(440px, 92vw); /* Ancho adaptable */
+  color: var(--texto); /* Texto claro */
+  background: var(--panel); /* Fondo modal */
+  border: 1px solid var(--borde); /* Borde */
+  border-radius: 14px; /* Esquinas */
+  padding: 22px; /* Relleno */
+}
+
+.modal-elemento::backdrop { /* Fondo detrás del modal */
+  background: rgba(0, 0, 0, .72); /* Oscurece pantalla */
+}
+
+.tarjeta-detalle h2 { /* Título del modal */
+  margin-top: 0; /* Sin margen superior */
+  color: var(--acento); /* Lila claro */
+}
+
+.tarjeta-detalle p { /* Párrafos del modal */
+  margin: 8px 0; /* Separación */
+  color: #eee2ff; /* Texto suave */
+}
+
+#cerrar { /* Botón cerrar */
+  width: 100%; /* Ancho completo */
+  margin-top: 12px; /* Separación */
+}
+
+@media (max-width: 900px) { /* Vista móvil */
+  .panel-filtros { grid-template-columns: 1fr; } /* Filtros en una columna */
+  .tabla-periodica { grid-template-columns: repeat(18, 58px); grid-template-rows: repeat(10, 58px); justify-content: start; overflow-x: auto; padding-left: 10px; } /* Tabla móvil con scroll */
+  .simbolo { font-size: 17px; } /* Símbolo reducido */
+}

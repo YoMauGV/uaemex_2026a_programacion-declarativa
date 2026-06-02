@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tabla Periódica de Ingrid</title>
+
+<link rel="stylesheet" href="../../../../Working%20files/INGRID%20GUADALUPE%20BALLESTEROS%20ROSALES/Proyecto%20Final/estilo.css">
+</head>
+
+<body>
+
+<!--fondo de galaxia que se mueve-->
+<canvas id="bg"></canvas>
+
+<header>
+  <h1> Tabla Periódica de Ingrid</h1>
+
+  <div class="toolbar">
+    <input id="buscador" placeholder="Buscar elemento...">
+
+    <select id="filtro">
+      <option value="all">Todos los bloques</option>
+      <option value="s">Metales alcalinos y metales alcalinoterreos</option>
+      <option value="p">Metales, metaloides y los gases nobles</option>
+      <option value="d">Metales de transición</option>
+      <option value="f">Lantánidos y actínidos</option>
+    </select>
+  </div>
+</header>
+
+<!--tabla-->
+<div class="wrap">
+  <div id="tabla"></div>
+</div>
+
+<!--modal de la tabla-->
+<div id="modal">
+  <div class="modal-box">
+
+    <h2 id="m-title"></h2>
+
+    <div id="orbital-container">
+      <canvas id="orbital"></canvas>
+    </div>
+
+    <!--datos de la tabla -->
+    <div id="m-body"></div>
+
+    <button id="closeBtn">Cerrar</button>
+
+  </div>
+</div>
+
+<script src="../../../../Working%20files/INGRID%20GUADALUPE%20BALLESTEROS%20ROSALES/Proyecto%20Final/script.js"></script>
+
+</body>
+</html>

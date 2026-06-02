@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma - Tabla Periódica Interactiva</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header-cartel">
+        <div class="branding-fca">
+            <h1 class="titulo-izq">TABLA PERIÓDICA</h1>
+            <p class="subtitulo">Facultad de Contaduria y Administracion</p>
+        </div>
+    </header>
+
+    <section class="panel-busqueda">
+        <form id="form-filtros" class="filtros-wrapper" onsubmit="return false;">
+            
+            <div class="control-filtro">
+                <label for="filter-categoria">Categoría</label>
+                <select id="filter-categoria" name="categoria">
+                    <option value="todas">Todas</option>
+                    <option value="metales-alcalinos">M. Alcalinos</option>
+                    <option value="alcalinoterreos">Alcalinotérreos</option>
+                    <option value="metales-transicion">M. Transición</option>
+                    <option value="metaloides">Metaloides</option>
+                    <option value="no-metales">No Metales</option>
+                    <option value="halogenos">Halógenos</option>
+                    <option value="gases-nobles">Gases Nobles</option>
+                    <option value="lantanidos">Lantánidos</option>
+                    <option value="actinidos">Actínidos</option>
+                </select>
+            </div>
+
+            <div class="control-filtro">
+                <label for="filter-origen">Origen</label>
+                <select id="filter-origen" name="origen">
+                    <option value="todos">Todos</option>
+                    <option value="natural">Natural</option>
+                    <option value="sintetico">Sintético</option>
+                </select>
+            </div>
+
+            <div class="control-filtro">
+                <label for="filter-descubridor">Descubridor</label>
+                <input type="text" id="filter-descubridor" name="descubridor" placeholder="Ej. Curie">
+            </div>
+
+            <div class="acciones-filtro">
+                <button type="button" id="btn-aplicar" class="btn-principal">Aplicar</button>
+                <button type="button" id="btn-limpiar" class="btn-secundario">Limpiar</button>
+            </div>
+
+        </form>
+    </section>
+
+    <section class="contenedor-quimico">
+        <div id="tabla-principal" class="tabla-grid"></div>
+        
+        <div id="tabla-inferior" class="tabla-grid-inferior"></div>
+    </section>
+
+    <aside id="modal-elemento" class="modal-overlay" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            
+            <button id="modal-cerrar" class="btn-cerrar" aria-label="Cerrar ventana">&times;</button>
+
+            <header class="modal-top-bar">
+                <span id="modal-num" class="badge-num"></span>
+                <span id="modal-masa" class="badge-masa"></span>
+            </header>
+
+            <figure class="modal-center-block">
+                <h1 id="modal-simbolo"></h1>
+                <figcaption id="modal-nombre"></figcaption>
+            </figure>
+
+            <footer class="modal-footer-grid">
+                <div class="meta-col">
+                    <strong>Configuración:</strong>
+                    <p id="modal-config"></p>
+                </div>
+                <div class="meta-col ubi-col">
+                    <p id="modal-coordenadas"></p>
+                    <p id="modal-familia-texto"></p>
+                </div>
+            </footer>
+
+            <div class="modal-extra-info">
+                <ul class="datos-historicos">
+                    <li><strong>Descubridor:</strong> <span id="modal-descubridor"></span></li>
+                    <li><strong>Origen:</strong> <span id="modal-origen"></span></li>
+                </ul>
+            </div>
+
+        </div>
+    </aside>
+
+    <script src="app.js"></script>
+</body>
+</html>

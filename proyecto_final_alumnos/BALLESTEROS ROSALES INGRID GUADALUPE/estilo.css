@@ -1,0 +1,199 @@
+body{
+  margin:0;
+  font-family:'Segoe UI', Arial;
+  background: radial-gradient(circle at top, #011467, #000);
+  color:white;
+  overflow:hidden;
+}
+
+/* universo*/
+#bg{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+}
+
+header{
+  text-align:center;
+  padding:15px;
+}
+
+h1{
+  letter-spacing:3px;
+  text-shadow:0 0 20px cyan, 0 0 40px blue;
+}
+
+.toolbar{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+}
+
+input, select{
+  padding:10px;
+  border-radius:10px;
+  border:none;
+  background:#0b1020;
+  color:rgb(54, 239, 252);
+}
+
+/* editor de tabla */
+.wrap{
+  overflow:auto;
+  height:72vh;
+  padding:15px;
+}
+
+#tabla{
+  display:grid;
+  grid-template-columns: repeat(18, 72px);
+  grid-auto-rows: 72px;
+  gap:6px;
+  justify-content:center;
+}
+
+/* diseño de elementos */
+.elemento{
+  border-radius:12px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  font-size:11px;
+  cursor:pointer;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  transition:0.25s;
+  position:relative;
+  overflow:hidden;
+}
+
+/* efectos al pasar el mouse sobre un elemento */
+.elemento:hover{
+  transform:scale(1.3);
+  box-shadow:0 0 25px cyan; /* crea un efecto brillante de aura */
+}
+
+.s{background:#78eea5;}
+.p{background:#58c4df;}
+.d{background:#c48ff6;}
+.f{background:#ee7bb4;}
+
+/* estados de los bordes*/
+.gas{
+  border:1px solid rgba(255,80,80,0.7);
+  box-shadow:0 0 10px rgba(255,80,80,0.3);
+}
+
+.solid{
+  border:1px solid rgba(0,255,140,0.6);
+  box-shadow:0 0 10px rgba(0,255,140,0.25);
+}
+
+.liquid{
+  border:1px solid rgba(80,150,255,0.7);
+  box-shadow:0 0 12px rgba(80,150,255,0.35);
+}
+
+.gas .simbolo-estado { color: #ff4d4d !important; text-shadow: 0 0 8px rgba(255,77,77,0.6); }
+.solid .simbolo-estado { color: #00ff8c !important; text-shadow: 0 0 8px rgba(0,255,140,0.6); }
+.liquid .simbolo-estado { color: #4da3ff !important; text-shadow: 0 0 8px rgba(77,163,255,0.6); }
+
+.state-gas { color: #ff4d4d; }
+.state-solid { color: #00ff8c; }
+.state-liquid { color: #4da3ff; }
+
+/* modales */
+#modal{
+  position:fixed;
+  inset:0;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  background:rgba(0,0,0,0.85);
+}
+
+.modal-box{
+  width:420px;
+  padding:18px;
+  border-radius:16px;
+  background:rgba(10,15,35,0.95);
+  border:1px solid cyan;
+  box-shadow:0 0 40px rgba(0,255,255,0.25);
+  text-align:center;
+}
+
+/* estilo del contenedor de orbitales en el modal */
+#orbital-container{
+  width:100%;
+  height:160px;
+  margin:10px 0;
+  border-radius:12px;
+  background:radial-gradient(circle, rgba(0,255,255,0.06), transparent);
+  border:1px solid rgba(0,255,255,0.2);
+  position:relative;
+  overflow:hidden;
+}
+
+/* diseño de tabla de datos en el modal */
+.data-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:8px;
+  justify-items:center;
+}
+
+.data-item{
+  width:90%;
+  text-align:center;
+  background:rgba(255,255,255,0.05);
+  padding:8px;
+  border-radius:8px;
+  border-left:2px solid cyan;
+  font-size:12px;
+}
+
+button{
+  margin-top:12px;
+  padding:10px;
+  border:none;
+  border-radius:8px;
+  background:cyan;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* atomos flotantes del fondo*/
+.nucleus{
+  position:fixed;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:radial-gradient(circle,#fff,#00e5ff);
+  box-shadow:0 0 12px #00e5ff;
+  opacity:0.5;
+  pointer-events:none;
+  z-index:0;
+}
+
+.quantum-core{
+  position:absolute;
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background:radial-gradient(circle,#fff,#00e5ff);
+  box-shadow:0 0 20px #00e5ff;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+
+.quantum-electron{
+  position:absolute;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:rgba(0,255,255,0.9);
+  box-shadow:0 0 10px rgba(0,255,255,0.8);
+}

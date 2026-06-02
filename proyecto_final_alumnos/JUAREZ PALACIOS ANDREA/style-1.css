@@ -1,0 +1,315 @@
+
+body {
+    background: #0f172a; 
+    color: #f8fafc;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 30px;
+    letter-spacing: -0.01em;
+}
+
+.header-cartel {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.titulo-izq {
+    font-size: 42px;
+    font-weight: 800;
+    color: #38bdf8;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.subtitulo {
+    color: #64748b;
+    font-size: 15px;
+    margin-top: 6px;
+    font-weight: 500;
+}
+
+.panel-busqueda {
+    background: #1e293b;
+    padding: 20px 25px;
+    border-radius: 14px;
+    margin-bottom: 40px;
+    border: 1px solid #334155;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.filtros-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;    
+    gap: 24px;           
+    align-items: flex-end; 
+    justify-content: center;
+}
+
+
+.control-filtro {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.control-filtro label {
+    font-weight: 600;
+    font-size: 13px;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.control-filtro select,
+.control-filtro input {
+    width: 190px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #475569;
+    background: #0f172a;
+    color: #f1f5f9;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s ease;
+    box-sizing: border-box; 
+}
+
+.control-filtro select:focus,
+.control-filtro input:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.15);
+}
+
+.acciones-filtro {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-principal, .btn-secundario {
+    padding: 10px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    border: none;
+    height: 41px; 
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-principal {
+    background: #38bdf8;
+    color: #0f172a;
+}
+
+.btn-principal:hover {
+    background: #0ea5e9;
+    transform: translateY(-1px);
+}
+
+.btn-secundario {
+    background: #334155;
+    color: #94a3b8;
+    border: 1px solid #475569;
+}
+
+.btn-secundario:hover {
+    background: #475569;
+    color: #f1f5f9;
+    transform: translateY(-1px);
+}
+
+.contenedor-quimico {
+    width: 100%;
+}
+
+.tabla-grid {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    gap: 6px;
+}
+
+.tabla-grid-inferior {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    gap: 6px;
+    margin-top: 25px;
+    margin-left: 120px;
+}
+
+.elemento-card {
+    color: #0f172a; 
+    border-radius: 8px;
+    padding: 8px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    box-sizing: border-box;
+}
+
+.elemento-card:hover {
+    transform: scale(1.12);
+    z-index: 10;
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.elemento-card .badge-num, 
+.elemento-card .numero {
+    font-size: 10px; 
+    font-weight: 700;
+    color: rgba(15, 23, 42, 0.6);
+}
+
+.elemento-card .simbolo {
+    font-size: 24px; 
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1;
+    color: #0f172a;
+}
+
+.elemento-card .nombre {
+    text-align: center;
+    font-size: 10px; 
+    font-weight: 600;
+    color: rgba(15, 23, 42, 0.85);
+    margin: 0;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.metales-alcalinos { background: #f87171; }
+.alcalinoterreos { background: #fb923c; }
+.metales-transicion { background: #fbbf24; }
+.metaloides { background: #34d399; }
+.no-metales { background: #4ade80; }
+.halogenos { background: #c084fc; }
+.gases-nobles { background: #22d3ee; }
+.lantanidos { background: #f472b6; }
+.actinidos { background: #fb7185; }
+
+/* --- MODAL --- */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background: #1e293b;
+    color: #f8fafc;
+    width: 400px;
+    border-radius: 16px;
+    padding: 25px;
+    position: relative;
+    border: 1px solid #475569;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.btn-cerrar {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 26px;
+    color: #94a3b8;
+    cursor: pointer;
+    background: none;
+    border: none;
+    transition: color 0.2s;
+}
+
+.btn-cerrar:hover {
+    color: #f1f5f9;
+}
+
+.modal-top-bar {
+    display: flex;
+    justify-content: space-between;
+    color: #94a3b8;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.modal-center-block {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#modal-simbolo {
+    font-size: 75px;
+    font-weight: 800;
+    margin: 0;
+    color: #38bdf8;
+    line-height: 1;
+}
+
+#modal-nombre {
+    margin: 10px 0 0 0;
+    font-size: 28px;
+    font-weight: 600;
+    color: #f8fafc;
+}
+
+.modal-footer-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    color: #cbd5e1;
+    font-size: 14px;
+    border-top: 1px solid #334155;
+    padding-top: 15px;
+}
+
+.meta-col p {
+    margin: 4px 0;
+}
+
+.modal-extra-info {
+    margin-top: 20px;
+    background: #0f172a;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid #334155;
+}
+
+.datos-historicos {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+    color: #94a3b8;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.datos-historicos strong {
+    color: #cbd5e1;
+}

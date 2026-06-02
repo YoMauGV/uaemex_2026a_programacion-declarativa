@@ -1,0 +1,56 @@
+<!DOCTYPE html> <!-- Define documento HTML5 -->
+<html lang="es"> <!-- Configura idioma español -->
+<head> <!-- Inicio de configuración -->
+  <meta charset="UTF-8"> <!-- Permite acentos y caracteres especiales -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajuste responsive -->
+  <title>Tabla Periódica </title> <!-- Título de pestaña -->
+  <link rel="stylesheet" href="../../../../Working%20files/NATALIA%20EDITH%20DURAN%20REYES/Proyecto%20Final/style.css"> <!-- Conecta estilos CSS -->
+</head> <!-- Fin de configuración -->
+<body> <!-- Inicio del contenido visible -->
+
+  <header class="encabezado"> <!-- Encabezado principal -->
+    <h1>Tabla Periódica</h1> <!-- Título del sistema -->
+    <p>Portal Químico Declarativo </p> <!-- Subtítulo -->
+  </header> <!-- Fin encabezado -->
+
+  <main class="contenedor"> <!-- Contenedor general -->
+
+    <section class="panel-filtros"> <!-- Panel de filtros -->
+      <label>Categoría <!-- Filtro por categoría -->
+        <select id="filtro-categoria"><option value="">Todas</option></select> <!-- Select dinámico -->
+      </label>
+
+      <label>Origen <!-- Filtro por origen -->
+        <select id="filtro-origen"><option value="">Cualquier Origen</option></select> <!-- Select dinámico -->
+      </label>
+
+      <label>Descubridor <!-- Filtro por descubridor -->
+        <input id="filtro-descubridor" type="search" placeholder="Ej. Curie, Seaborg..."> <!-- Buscador -->
+      </label>
+
+      <button id="aplicar" type="button">Aplicar Filtros</button> <!-- Ejecuta filtros -->
+      <button id="limpiar" type="button">Limpiar</button> <!-- Reinicia filtros -->
+    </section> <!-- Fin panel -->
+
+    <section id="leyenda-categorias" class="leyenda"></section> <!-- Leyenda de categorías -->
+
+    <section class="estado-leyenda"> <!-- Leyenda de estados -->
+      <span class="solido">A</span> Sólido
+      <span class="liquido">A</span> Líquido
+      <span class="gas">A</span> Gas
+      <span>Sintético</span>
+    </section> <!-- Fin leyenda estados -->
+
+    <section id="resumen" class="resumen">Cargando datos...</section> <!-- Mensaje de carga -->
+    <section id="tabla" class="tabla-periodica"></section> <!-- Tabla generada por JS -->
+
+  </main> <!-- Fin contenedor -->
+
+  <dialog id="modal" class="modal-elemento"> <!-- Ventana modal -->
+    <article id="detalle" class="tarjeta-detalle"></article> <!-- Información del elemento -->
+    <button id="cerrar" type="button">Cerrar</button> <!-- Cierra modal -->
+  </dialog> <!-- Fin modal -->
+
+  <script src="../../../../Working%20files/NATALIA%20EDITH%20DURAN%20REYES/Proyecto%20Final/app.js"></script> <!-- Conecta JavaScript -->
+</body> <!-- Fin contenido -->
+</html> <!-- Fin documento -->

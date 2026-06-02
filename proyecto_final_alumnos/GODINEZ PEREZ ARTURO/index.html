@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Tabla Periódica de los Elementos - Edición Cuántica</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="../../../../Working%20files/ARTURO%20GODINEZ%20PEREZ/Proyecto%20Final/estilos.css">
+</head>
+<body>
+    <div id="bg-animation-container"></div>
+
+    <header class="header animate__animated animate__fadeInDown">
+        <h1 class="quantum-title">Tabla Periódica de los Elementos</h1>
+        
+        <div class="controls animate__animated animate__fadeIn">
+            <div class="filter-group search-group">
+                <label for="search-name">🔍 Buscar:</label>
+                <input type="text" id="search-name" placeholder="Nombre o símbolo (Ej. Au, Oro)...">
+            </div>
+
+            <div class="filter-group">
+                <label for="filter-category">Categoría:</label>
+                <select id="filter-category">
+                    <option value="all">Todas las Categorías</option>
+                    <option value="metal-alcalino">Metales Alcalinos</option>
+                    <option value="alcalinoterreo">Alcalinotérreos</option>
+                    <option value="metal-transicion">Metales de Transición</option>
+                    <option value="metal-post-transicion">Metales Post-Transición</option>
+                    <option value="metaloide">Metaloides</option>
+                    <option value="no-metal">No Metales</option>
+                    <option value="halogeno">Halógenos</option>
+                    <option value="gas-noble">Gases Nobles</option>
+                    <option value="lantanido">Lantánidos</option>
+                    <option value="actinido">Actínidos</option>
+                    <option value="desconocido">Desconocidos</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="filter-family">Familia:</label>
+                <select id="filter-family">
+                    <option value="all">Cargando familias...</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main id="table-container" class="periodic-table"></main>
+
+    <div id="element-modal" class="modal hidden">
+        <div class="modal-content animate__animated animate__zoomIn">
+            <button id="close-modal" class="close-btn">&times;</button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="../../../../Working%20files/ARTURO%20GODINEZ%20PEREZ/Proyecto%20Final/script.js"></script> 
+</body>
+</html>

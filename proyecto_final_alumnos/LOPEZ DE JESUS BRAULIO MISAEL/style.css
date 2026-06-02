@@ -1,0 +1,300 @@
+/* style.css */
+body {
+  font-family: Arial, sans-serif;
+  background: #020024;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(84, 84, 179, 1) 50%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  margin: 0;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+/* BOTONES DE CATEGORÍAS TIPO PÍLDORA*/
+
+/* Contenedor de los botones */
+#botones-categorias {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los botones pasen a la siguiente línea si no caben */
+  justify-content: center;
+  gap: 10px;
+  max-width: 800px; /* Evita que se estiren demasiado en pantallas grandes */
+}
+
+/* Diseño del botón individual */
+.btn-categoria {
+  background: #000000;
+  color: #d4b9b9;
+
+  border: 1px solid #000000;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+/* Efecto al pasar el mouse */
+.btn-categoria:hover {
+  background-color: #333;
+  color: white;
+  transform: translateY(-2px); /* Se levanta un poquito */
+}
+
+/* El circulito de color adentro del botón */
+.circulo-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%; /* Lo hace un círculo perfecto */
+  display: inline-block;
+  /* Los colores los heredará automáticamente de tus clases .no-metal, .gas-noble, etc. */
+}
+
+/* Diseño para cuando el botón está presionado/activo */
+.btn-categoria.activo {
+  border-color: #ffffff;
+  color: white;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+#buscador {
+  padding: 10px;
+  width: 300px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+}
+
+/* style.css */
+.tabla {
+  display: grid;
+  grid-template-columns: repeat(18, 1fr);
+  gap: 5px;
+  max-width: 1200px;
+  margin: 0 auto;
+  grid-template-rows: repeat(9, auto);
+}
+
+/* Estilo individual de cada elemento */
+.elemento {
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+  color: black;
+  min-height: 60px;
+}
+
+.elemento:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  z-index: 10;
+}
+
+.numero {
+  font-size: 10px;
+  text-align: left;
+}
+.simbolo {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 2px 0;
+}
+.nombre {
+  font-size: 10px;
+}
+
+/*COLORES POR CATEGORÍA CON EFECTO NEÓN */
+
+.no-metal {
+  background-color: #54c454;
+  /* Sombra pequeña, sombra mediana, sombra grande */
+  box-shadow:
+    0 0 5px #54c454,
+    0 0 15px #54c454,
+    0 0 30px #54c454;
+  border: 1px solid #8eff8e;
+  color: rgb(255, 255, 255);
+}
+
+.gas-noble {
+  background-color: #3a8686;
+  box-shadow:
+    0 0 5px #3a8686,
+    0 0 15px #3a8686,
+    0 0 30px #3a8686;
+  border: 1px solid #5ceaea;
+  color: rgb(255, 255, 255);
+}
+
+.metal-alcalino {
+  background-color: #ee4242;
+  box-shadow:
+    0 0 5px #ee4242,
+    0 0 15px #ee4242,
+    0 0 30px #ee4242;
+  border: 1px solid #ff7373;
+  color: rgb(255, 255, 255);
+}
+
+.alcalinoterreo {
+  background-color: #3700ff;
+  box-shadow:
+    0 0 5px #3700ff,
+    0 0 15px #3700ff,
+    0 0 30px #3700ff;
+  border: 1px solid #7b5aff;
+  color: rgb(255, 255, 255);
+}
+
+.metaloide {
+  background-color: #c9c910;
+  box-shadow:
+    0 0 5px #c9c910,
+    0 0 15px #c9c910,
+    0 0 30px #c9c910;
+  border: 1px solid #ffff4d;
+  color: rgb(255, 255, 255);
+}
+
+.halogeno {
+  background-color: #20910a;
+  box-shadow:
+    0 0 5px #20910a,
+    0 0 15px #20910a,
+    0 0 30px #20910a;
+  border: 1px solid #45ff24;
+  color: rgb(255, 255, 255);
+}
+
+.metal-transicion {
+  background-color: #b90e86;
+  box-shadow:
+    0 0 5px #b90e86,
+    0 0 15px #b90e86,
+    0 0 30px #b90e86;
+  border: 1px solid #ff4dd4;
+  color: white;
+}
+
+.metal-post-transicion {
+  background-color: #8f0eda;
+  box-shadow:
+    0 0 5px #8f0eda,
+    0 0 15px #8f0eda,
+    0 0 30px #8f0eda;
+  border: 1px solid #c966ff;
+  color: white;
+}
+
+.lantanido {
+  background-color: rgb(49, 135, 211);
+  box-shadow:
+    0 0 5px rgb(49, 135, 211),
+    0 0 15px rgb(49, 135, 211),
+    0 0 30px rgb(49, 135, 211);
+  border: 1px solid #75baff;
+  color: rgb(255, 255, 255);
+}
+
+.actinido {
+  background-color: blue;
+  box-shadow:
+    0 0 5px blue,
+    0 0 15px blue,
+    0 0 30px blue;
+  border: 1px solid #6666ff;
+  color: white;
+}
+
+.desconocido {
+  background-color: rgb(173, 36, 173);
+  box-shadow:
+    0 0 5px rgb(173, 36, 173),
+    0 0 15px rgb(173, 36, 173),
+    0 0 30px rgb(173, 36, 173);
+  border: 1px solid #ff7aff;
+  color: rgb(255, 255, 255);
+}
+
+#panel-detalles {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    border-radius: 15px;
+    color: white;
+    z-index: 1000;
+    min-width: 300px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7); 
+    transition: all 0.3s ease;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+}
+
+/* Evitamos que el modal desaparezca por completo cuando se oculte */
+#panel-detalles.oculto {
+    display: none;
+}
+
+/*Estilos de el buscador y el boton de filtroo*/
+
+/* 1.Título Principal */
+header h1 {
+  font-size: 2.5rem;
+  color: rgb(252, 255, 251);
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-shadow: 0px 4px 10px rgba(255, 255, 255, 0.3);
+}
+
+#controles {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+/* 3. Estilos compartidos para el Buscador y el Menú de Filtros */
+#buscador,
+#filtro-categoria {
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 2.1px solid #ffffff;
+
+  /* Colores para que combinen con tu fondo oscuro */
+  background-color: #080808;
+  color: rgb(238, 238, 238);
+
+  /* Transición suave cuando pasa el mouse */
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+/* 4. Efecto cuando pasas el mouse por encima (Hover) */
+#buscador:hover,
+#filtro-categoria:hover {
+  border-color: #1daf1d;
+  background-color: #1daf1d;
+}
+
+/* 5. Efecto cuando le haces clic / estás escribiendo */
+#buscador:focus,
+#filtro-categoria:focus {
+  border-color: #54c454;
+  box-shadow: 0 0 10px rgba(128, 207, 128, 0.5); /* Un brillo peque al escribir */
+}
+
+.oculto {
+  display: none;
+}

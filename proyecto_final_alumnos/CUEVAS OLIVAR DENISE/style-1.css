@@ -1,0 +1,292 @@
+body {
+    background: #430941;
+    color: rgb(66, 1, 53);
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.header-cartel {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.titulo-izq {
+    font-size: 50px;
+    color: #4c205d;
+    margin: 0;
+}
+
+.subtitulo {
+    color: #5c3879;
+    font-size: 18px;
+}
+
+.filtros-container {
+    background: rgba(186, 73, 201, 0.05);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.inputs-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: end;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.filter-group select,
+.filter-group input {
+    width: 180px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #3d5577;
+    background: #3d1038;
+    color: rgb(243, 151, 235);
+}
+
+button {
+    background: #95528c;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.tabla-grid {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    gap: 6px;
+}
+
+.tabla-grid-inferior {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    gap: 6px;
+    margin-top: 25px;
+    margin-left: 120px;
+}
+
+
+.elemento-card {
+    color: white;
+    border-radius: 4px;
+    padding: 4px 4px 6px 4px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+    transition: .25s;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: #1c2431;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.elemento-card:hover {
+    transform: scale(1.08);
+    z-index: 100;
+    box-shadow: 0 0 15px rgba(255,255,255,.25);
+}
+
+.numero {
+    font-size: 10px; 
+    font-weight: bold;
+    opacity: .95;
+}
+
+.simbolo {
+    font-size: 28px; 
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: 1px;
+    line-height: 1.1;
+}
+
+.nombre {
+    text-align: center;
+    font-size: 10px; 
+    opacity: .95;
+    margin-bottom: 0px;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.metales-alcalinos {
+    box-shadow: inset 0 -4px 0 0 #ff8c42;
+}
+
+.alcalinoterreos {
+    box-shadow: inset 0 -4px 0 0 #ffb26b;
+}
+
+.metales-transicion {
+    box-shadow: inset 0 -4px 0 0 #f4c542;
+}
+
+.metaloides {
+    box-shadow: inset 0 -4px 0 0 #3bd16f;
+}
+
+.no-metales {
+    box-shadow: inset 0 -4px 0 0 #7b6cff;
+}
+
+.halogenos {
+    box-shadow: inset 0 -4px 0 0 #d96bff;
+}
+
+.gases-nobles {
+    box-shadow: inset 0 -4px 0 0 #56d7ff;
+}
+
+.lantanidos {
+    box-shadow: inset 0 -4px 0 0 #ff5b5b;
+}
+
+.actinidos {
+    box-shadow: inset 0 -4px 0 0 #ff4fb2;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: .3s;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background: #e9f58c;
+    color: #222;
+    width: 420px;
+    border-radius: 15px;
+    padding: 25px;
+    position: relative;
+    border: 6px solid white;
+}
+
+.btn-cerrar {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.modal-header-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-center-block {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#modal-simbolo {
+    font-size: 95px;
+    margin: 0;
+}
+
+#modal-nombre {
+    margin: 0;
+    font-size: 35px;
+}
+
+.modal-footer-grid {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-extra-info {
+    margin-top: 20px;
+    background: rgba(255,255,255,.5);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+body{
+    background: linear-gradient(
+        -45deg,
+        #ff9ad5,
+        #ffb6e6,
+        #ffc8dd,
+        #cdb4db,
+        #a2d2ff
+    );
+
+    background-size: 400% 400%;
+    animation: fondoAnimado 12s ease infinite;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+@keyframes fondoAnimado{
+
+    0%{
+        background-position: 0% 50%;
+    }
+
+    50%{
+        background-position: 100% 50%;
+    }
+
+    100%{
+        background-position: 0% 50%;
+    }
+
+}
+
+.elemento-card{
+    backdrop-filter: blur(6px);
+    background: rgba(20, 25, 40, 0.75);
+}
+
+.filtros-container{
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+.elemento-card:hover{
+    transform: scale(1.08);
+    z-index: 100;
+
+    box-shadow:
+    0 0 10px rgba(255,255,255,.25),
+    0 0 20px rgba(255,182,230,.5),
+    0 0 35px rgba(255,105,180,.4);
+}

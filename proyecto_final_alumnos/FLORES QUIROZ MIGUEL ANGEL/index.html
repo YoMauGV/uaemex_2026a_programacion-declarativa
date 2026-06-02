@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabla Periódica Interactiva</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            gridTemplateColumns: {
+              18: "repeat(18, minmax(0, 1fr))",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-zinc-300 text-white min-h-screen p-8">
+    <h1 class="text-4xl text-stone-900 font-bold text-center mb-10">
+      Tabla Periódica de los Elementos
+    </h1>
+
+    <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8">
+      <button
+        data-filtro="todos"
+        onclick="filtrar('todos')"
+        class="btn-filtro px-4 py-2 bg-slate-400 hover:bg-gray-600 rounded font-bold transition-colors"
+      >
+        Todos
+      </button>
+
+      <button
+        data-filtro="metal-alcalino"
+        onclick="filtrar('metal-alcalino')"
+        class="btn-filtro px-4 py-2 bg-red-900 hover:bg-red-900 border border-stone rounded transition-colors"
+      >
+        Alcalinos
+      </button>
+
+      <button
+        data-filtro="alcalinoterreo"
+        onclick="filtrar('alcalinoterreo')"
+        class="btn-filtro px-4 py-2 bg-indigo-900 hover:bg-indigo-900 border border-stone rounded transition-colors"
+      >
+        Metales Alcalinoterreos
+      </button>
+
+      <button
+        data-filtro="metal-transicion"
+        onclick="filtrar('metal-transicion')"
+        class="btn-filtro px-4 py-2 bg-sky-800 hover:bg-sky-800 border border-stone rounded transition-colors"
+      >
+        Metales transicionales
+      </button>
+
+      <button
+        data-filtro="metal-post-transicion"
+        onclick="filtrar('metal-post-transicion')"
+        class="btn-filtro px-4 py-2 bg-lime-600 hover:bg-lime-800 border border-stone rounded transition-colors"
+      >
+        Metales postransicionales
+      </button>
+
+      <button
+        data-filtro="lantanido"
+        onclick="filtrar('lantanido')"
+        class="btn-filtro px-4 py-2 bg-teal-600 hover:bg-teal-800 border border-stone rounded transition-colors"
+      >
+        Lantánidos
+      </button>
+
+      <button
+        data-filtro="actinido"
+        onclick="filtrar('actinido')"
+        class="btn-filtro px-4 py-2 bg-emerald-600 hover:bg-emerald-800 border border-stone rounded transition-colors"
+      >
+        Actinoides
+      </button>
+
+      <button
+        data-filtro="metaloide"
+        onclick="filtrar('metaloide')"
+        class="btn-filtro px-4 py-2 bg-lime-800 hover:bg-lime-800 border border-stone rounded transition-colors"
+      >
+        Metaloides
+      </button>
+
+      <button
+        data-filtro="no-metal"
+        onclick="filtrar('no-metal')"
+        class="btn-filtro px-4 py-2 bg-lime-800/90 hover:bg-lime-800 border border-stone rounded transition-colors"
+      >
+        No Metales
+      </button>
+
+      <button
+        data-filtro="halogeno"
+        onclick="filtrar('halogeno')"
+        class="btn-filtro px-4 py-2 bg-lime-700 hover:bg-lime-800 border border-stone rounded transition-colors"
+      >
+        Halogenos
+      </button>
+
+      <button
+        data-filtro="gas-noble"
+        onclick="filtrar('gas-noble')"
+        class="btn-filtro px-4 py-2 bg-yellow-800/90 hover:bg-yellow-800 border border-stone rounded transition-colors"
+      >
+        Gases Nobles
+      </button>
+
+      <button
+        data-filtro="desconocido"
+        onclick="filtrar('desconocido')"
+        class="btn-filtro px-4 py-2 bg-emerald-800 hover:bg-emerald-800 border border-stone rounded transition-colors"
+      >
+        Propiedades desconocidas
+      </button>
+    </div>
+    <div
+      id="tabla-periodica"
+      class="grid grid-cols-18 grid-rows-9 gap-1 max-w-7xl mx-auto"
+    ></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
