@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla Periódica</title>
+
+    <link rel="stylesheet" href="../../../../Working%20files/CARLOS%20JESUS%20ALVARADO%20JIMENEZ/Proyecto%20Final/style.css">
+</head>
+
+<body>
+
+    <h1>Tabla Periódica</h1>
+    <input
+type="text"
+id="buscador"
+placeholder="Buscar elemento..."
+onkeyup="buscarElemento()"
+>
+<div class="filtros">
+
+    <div class="leyenda">
+
+        <div class="grupo-leyenda">
+            <div class="item">
+                <span class="color metal-alcalino"></span>
+            </div>
+
+            <div class="item">
+                <span class="color metal-transicion"></span>
+            </div>
+
+        </div>
+
+        <div class="grupo-leyenda">
+            <div class="item">
+                <span class="color no-metal"></span>
+            </div>
+
+            <div class="item">
+                <span class="color halogeno"></span>
+            </div>
+
+            <div class="item">
+                <span class="color gas-noble"></span>
+            </div>
+
+        </div>
+
+    </div>
+<div class="filtros">
+
+    <div class="filtro-item"
+    onclick="filtrar('todos')">
+
+        <span class="circulo todos"></span>
+
+        Todos
+
+    </div>
+
+    <div class="filtro-item"
+    onclick="filtrar('metal-alcalino')">
+
+        <span class="circulo metal-alcalino"></span>
+
+        Metal Alcalino
+
+    </div>
+
+    <div class="filtro-item"
+    onclick="filtrar('metal-transicion')">
+
+        <span class="circulo metal-transicion"></span>
+
+        Metal Transición
+
+    </div>
+
+    <div class="filtro-item"
+    onclick="filtrar('no-metal')">
+
+        <span class="circulo no-metal"></span>
+
+        No metal
+
+    </div>
+
+    <div class="filtro-item"
+    onclick="filtrar('gas-noble')">
+
+        <span class="circulo gas-noble"></span>
+
+        gas noble
+
+    </div>
+
+    <div class="filtro-item"
+    onclick="filtrar('alcalinoterreo')">
+
+        <span class="circulo alcalinoterreo"></span>
+
+        Alcalinoterreo
+
+    </div>
+
+    <div class="filtro-item"
+    onclick="filtrar('metaloide')">
+
+        <span class="circulo metaloide"></span>
+
+        metaloide
+
+    </div>
+
+    <div class="filtro-item"
+    onclick="filtrar('actinido')">
+
+        <span class="circulo actinido"></span>
+
+        actínido
+
+    </div>
+
+    <div class="filtro-item"
+    onclick="filtrar('metal-post-transicion')">
+
+        <span class="circulo metal-post-transicion"></span>
+
+        metal-post-transición
+
+    </div>
+
+    <div class="filtro-item"
+    onclick="filtrar('desconocido')">
+
+        <span class="circulo desconocido"></span>
+
+        Desconocido
+
+    </div>
+
+    <div class="filtro-item"
+    onclick="filtrar('lantanido')">
+
+        <span class="circulo lantanido"></span>
+
+        Lantanido
+
+    </div>
+
+        <div class="filtro-item"
+    onclick="filtrar('halogeno')">
+
+        <span class="circulo halogeno"></span>
+
+        halogeno
+
+    </div>
+
+</div>
+
+<div class="tabla-periodica" id="tabla">
+</div>
+    <div class="tabla-periodica" id="tabla">
+    </div>
+
+    <div id="modal" class="modal">
+
+        <div id="modal-contenido" class="modal-contenido">
+
+            <span id="cerrar">&times;</span>
+
+            <h2 id="titulo"></h2>
+
+            <p id="nombre"></p>
+
+            <p id="categoria"></p>
+
+            <p id="descubridor"></p>
+
+            <p id="anio"></p>
+
+            <p id="familia"></p>
+
+        </div>
+
+    </div>
+
+
+    <script src="../../../../Working%20files/CARLOS%20JESUS%20ALVARADO%20JIMENEZ/Proyecto%20Final/app.js"></script>
+
+</body>
+</html>

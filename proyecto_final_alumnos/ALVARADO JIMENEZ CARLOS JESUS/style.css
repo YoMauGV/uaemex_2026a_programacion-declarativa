@@ -1,0 +1,241 @@
+body{
+    font-family: Arial;
+    background: #020202;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+.tabla-periodica{
+    display: grid;
+    grid-template-columns: repeat(18, 80px);
+    grid-template-rows: repeat(9, 70px);
+    gap: 17px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.elemento{
+    background: #8a67bb;
+    padding: 10px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.elemento:hover{
+    transform: scale(1.6);
+    cursor: pointer;
+}
+
+.numero{
+    font-size: 12px;
+}
+
+.simbolo{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nombre{
+    font-size: 12px;
+}
+.filtros{
+
+    margin: 20px;
+}
+
+.filtros button{
+
+    padding: 10px;
+
+    margin: 5px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+.modal{
+
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.7);
+
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contenido{
+
+    background: rgb(255, 255, 255);
+
+    color: rgb(0, 0, 0);
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    width: 300px;
+
+    text-align: center;
+
+    position: relative;
+    border: 3px solid rgb(255, 255, 255);
+}
+
+#cerrar{
+
+    position: absolute;
+
+    top: 10px;
+    right: 15px;
+
+    font-size: 30px;
+
+    cursor: pointer;
+}
+
+.filtros{
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin: 20px;
+}
+
+.filtro-item{
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    cursor: pointer;
+
+    color: white;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+.filtro-item:hover{
+
+    transform: scale(1.1);
+}
+
+.circulo{
+
+    width: 15px;
+
+    height: 15px;
+
+    border-radius: 50%;
+
+    display: inline-block;
+}
+
+.todos{
+
+    background: white;
+}
+
+.metal-alcalino{
+
+    background: #054f3c;
+}
+
+.metal-transicion{
+
+    background: #2e1d4c;
+}
+
+.no-metal{
+
+    background: #253955;
+}
+
+.gas-noble{
+
+    background: #702925;
+}
+
+.metaloide{
+
+    background: #524b08;
+}
+
+.actinido{
+
+    background: #6a2107;
+}
+
+.lantanido{
+
+    background: #17335c;
+}
+
+.alcalinoterreo{
+
+    background: #86231e;
+}
+
+.metal-post-transicion{
+
+    background: #04381f;
+}
+
+.desconocido{
+
+    background: #434442;
+}
+
+.halogeno{
+
+    background: #253955;
+}
+
+#buscador{
+
+    width: 300px;
+
+    padding: 12px;
+
+    border-radius: 100px;
+
+    border: 2px solid rgb(255, 0, 0);
+
+    outline: none;
+
+    font-size: 16px;
+
+    margin-top: 20px;
+
+    background: #111;
+
+    color: white;
+
+    text-align: center;
+}
+
+#buscador::placeholder{
+
+    color: gray;
+}

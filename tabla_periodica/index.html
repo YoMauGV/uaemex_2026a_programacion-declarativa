@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla Periódica Interactiva - UAEMéx</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Tabla Periódica de los Elementos</h1>
+        <p>Portal Químico Declarativo | Unidad Académica Profesional "Los Uribe"</p>
+    </header>
+
+    <section class="panel-filtros">
+        <form id="formulario-filtros" class="formulario-declarativo">
+            
+            <div class="grupo-control">
+                <label for="filtro-categoria">Categoría:</label>
+                <select id="filtro-categoria">
+                    <option value="">Todas</option>
+                    <option value="metal-alcalino">Metales Alcalinos</option>
+                    <option value="alcalinoterreo">Alcalinotérreos</option>
+                    <option value="metal-transicion">Metales de Transición</option>
+                    <option value="metal-post-transicion">Otros Metales</option>
+                    <option value="metaloide">Metaloides</option>
+                    <option value="no-metal">No Metales</option>
+                    <option value="halogeno">Halógenos</option>
+                    <option value="gas-noble">Gases Nobles</option>
+                    <option value="lantanido">Lantánidos</option>
+                    <option value="actinido">Actínidos</option>
+                </select>
+            </div>
+
+            <div class="grupo-control">
+                <label for="filtro-origen">Origen:</label>
+                <select id="filtro-origen">
+                    <option value="">Cualquier Origen</option>
+                    <option value="Natural">Natural</option>
+                    <option value="Sintético">Sintético</option>
+                </select>
+            </div>
+
+            <div class="grupo-control">
+                <label for="filtro-descubridor">Descubridor:</label>
+                <input type="text" id="filtro-descubridor" placeholder="Ej. Curie, Seaborg...">
+            </div>
+
+            <div class="grupo-botones">
+                <button type="submit" class="btn-filtrar">Aplicar Filtros</button>
+                <button type="button" id="btn-limpiar" class="btn-limpiar">Limpiar</button>
+            </div>
+        </form>
+    </section>
+
+    <section class="leyendas-wrapper">
+        <div id="contenedor-leyenda" class="leyenda-container"></div>
+        <div id="contenedor-leyenda-estados" class="leyenda-container"></div>
+    </section>
+
+    <main>
+        <div class="tabla-wrapper">
+            <div id="contenedor-tabla" class="tabla-periodica">
+                <p class="cargando">Cargando base de datos desde Azure...</p>
+            </div>
+        </div>
+    </main>
+
+    <dialog id="modal-elemento" class="modal">
+        <div class="modal-marco">
+            <button id="btn-cerrar" class="btn-cerrar-nativo" aria-label="Cerrar">&times;</button>
+            <div id="datos-elemento" class="tarjeta-detalle">
+                </div>
+        </div>
+    </dialog>
+
+    <script src="app.js"></script>
+</body>
+</html>
