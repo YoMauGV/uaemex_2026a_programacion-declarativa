@@ -1,0 +1,322 @@
+const API_URL = "api.php";
+
+// Referencias al DOM
+const table = document.getElementById("periodicTable");
+const searchInput = document.getElementById("searchInput");
+const categoryFilter = document.getElementById("categoryFilter");
+const originFilter = document.getElementById("originFilter");
+const periodFilter = document.getElementById("periodFilter");
+const groupFilter = document.getElementById("groupFilter");
+const clearFilters = document.getElementById("clearFilters");
+const modal = document.getElementById("elementModal");
+const modalBody = document.getElementById("modalBody");
+const closeModal = document.getElementById("closeModal");
+const legend = document.getElementById("legend");
+
+let elementos = [];
+const cardsPorId = new Map();
+
+// Mapa de categoría
+const categoryClasses = {
+  "No metal": { clase: "no-metal", color: "#bbf7d0" },
+  "Gas noble": { clase: "gas-noble", color: "#bfdbfe" },
+  "Metal alcalino": { clase: "metal-alcalino", color: "#fecaca" },
+  Alcalinotérreo: { clase: "alcalinoterreo", color: "#fed7aa" },
+  Metaloide: { clase: "metaloide", color: "#fef08a" },
+  Halógeno: { clase: "halogeno", color: "#a5f3fc" },
+  "Metal de transición": { clase: "metal-de-transicion", color: "#ddd6fe" },
+  "Metal post-transición": { clase: "metal-post-transicion", color: "#e9d5ff" },
+  Lantánido: { clase: "lantanido", color: "#fbcfe8" },
+  Actínido: { clase: "actinido", color: "#f5d0fe" },
+  Desconocido: { clase: "desconocido", color: "#e5e7eb" },
+};
+
+// Incluyo La y Ac porque ocupan lugar en la tabla
+const lantanoides = [
+  "La",
+  "Ce",
+  "Pr",
+  "Nd",
+  "Pm",
+  "Sm",
+  "Eu",
+  "Gd",
+  "Tb",
+  "Dy",
+  "Ho",
+  "Er",
+  "Tm",
+  "Yb",
+];
+const actinoides = [
+  "Ac",
+  "Th",
+  "Pa",
+  "U",
+  "Np",
+  "Pu",
+  "Am",
+  "Cm",
+  "Bk",
+  "Cf",
+  "Es",
+  "Fm",
+  "Md",
+  "No",
+];
+
+async function cargarElementos() {
+  try {
+    const response = await fetch(API_URL);
+    elementos = await response.json();
+
+    llenarFiltros();
+    crearLeyenda();
+    renderizarTabla();
+  } catch (error) {
+    table.innerHTML =
+      "<p style='color:red;padding:20px;'>Error al cargar los elementos.</p>";
+    console.error("Error:", error);
+  }
+}
+
+// Llena todos los select con valores únicos
+function llenarFiltros() {
+  const unique = (field) =>
+    [...new Set(elementos.map((e) => e[field]))]
+      .filter((v) => v)
+      .sort((a, b) => (a > b ? 1 : -1));
+
+  llenarSelect(categoryFilter, unique("Categoria"));
+  llenarSelect(originFilter, unique("Origen"));
+  llenarSelect(periodFilter, unique("Periodo"), (a, b) => a - b);
+  llenarSelect(groupFilter, unique("Grupo"), (a, b) => a - b);
+}
+
+function llenarSelect(select, valores, sortFn) {
+  (sortFn ? valores.sort(sortFn) : valores).forEach((val) => {
+    const opt = document.createElement("option");
+    opt.value = val;
+    opt.textContent = val;
+    select.appendChild(opt);
+  });
+}
+
+// Crea la leyenda con los colores de cada categoría
+function crearLeyenda() {
+  Object.entries(categoryClasses).forEach(([nombre, datos]) => {
+    const item = document.createElement("div");
+    item.className = "legend-item";
+    item.textContent = nombre;
+    item.style.borderLeft = `4px solid ${datos.color}`;
+    legend.appendChild(item);
+  });
+}
+
+// Renderiza tabla una sola vez y cachea referencias
+function renderizarTabla() {
+  if (cardsPorId.size === 0) {
+    elementos.forEach((elemento) => {
+      const card = crearCard(elemento);
+      cardsPorId.set(elemento.Numero_Atomico, card);
+      table.appendChild(card);
+    });
+  }
+  aplicarFiltros();
+}
+
+// Crea una tarjeta de elemento
+function crearCard(elemento) {
+  const datos =
+    categoryClasses[elemento.Categoria] || categoryClasses["Desconocido"];
+  const card = document.createElement("div");
+
+  card.className = `element ${datos.clase}`;
+  card.setAttribute(
+    "aria-label",
+    `${elemento.Nombre}, símbolo ${elemento.Simbolo}`,
+  );
+  card.setAttribute("role", "button");
+  card.setAttribute("tabindex", "0");
+
+  const pos = obtenerPosicion(elemento);
+  card.style.gridColumn = pos.columna;
+  card.style.gridRow = pos.fila;
+
+  // Usar textContent en lugar de innerHTML (más seguro)
+  const numDiv = document.createElement("div");
+  numDiv.className = "atomic-number";
+  numDiv.textContent = elemento.Numero_Atomico;
+
+  const symDiv = document.createElement("div");
+  symDiv.className = "symbol";
+  symDiv.textContent = elemento.Simbolo;
+
+  const nameDiv = document.createElement("div");
+  nameDiv.className = "name";
+  nameDiv.textContent = elemento.Nombre;
+
+  const weightDiv = document.createElement("div");
+  weightDiv.className = "weight";
+  weightDiv.textContent = parseFloat(elemento.Peso_Atomico).toFixed(2);
+
+  card.appendChild(numDiv);
+  card.appendChild(symDiv);
+  card.appendChild(nameDiv);
+  card.appendChild(weightDiv);
+
+  card.addEventListener("click", () => abrirModal(elemento));
+  card.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      abrirModal(elemento);
+    }
+  });
+
+  return card;
+}
+
+// Calcula posición en grid
+function obtenerPosicion(elemento) {
+  const idxLan = lantanoides.indexOf(elemento.Simbolo);
+  const idxAct = actinoides.indexOf(elemento.Simbolo);
+
+  if (idxLan !== -1) return { fila: 8, columna: idxLan + 4 };
+  if (idxAct !== -1) return { fila: 9, columna: idxAct + 4 };
+
+  return { fila: elemento.Periodo, columna: elemento.Grupo || 3 };
+}
+
+// Optimización: ocultar elementos con la clase .hidden en lugar de re-renderizar la tabla
+function aplicarFiltros() {
+  const texto = searchInput.value.toLowerCase().trim();
+  const categoria = categoryFilter.value;
+  const origen = originFilter.value;
+  const periodo = periodFilter.value;
+  const grupo = groupFilter.value;
+
+  let visibles = 0;
+
+  elementos.forEach((elemento) => {
+    const card = cardsPorId.get(elemento.Numero_Atomico);
+    if (!card) return;
+
+    const textoCoincide =
+      !texto ||
+      [elemento.Nombre, elemento.Simbolo, elemento.Descubridor || ""].some(
+        (v) => v.toLowerCase().includes(texto),
+      );
+
+    const categoriaCoincide = !categoria || elemento.Categoria === categoria;
+    const origenCoincide = !origen || elemento.Origen === origen;
+    const periodoCoincide = !periodo || String(elemento.Periodo) === periodo;
+    const grupoCoincide = !grupo || String(elemento.Grupo) === grupo;
+
+    const coincide =
+      textoCoincide &&
+      categoriaCoincide &&
+      origenCoincide &&
+      periodoCoincide &&
+      grupoCoincide;
+
+    card.classList.toggle("hidden", !coincide);
+    if (coincide) visibles++;
+  });
+}
+
+// Abre el modal
+function abrirModal(e) {
+  const datos = categoryClasses[e.Categoria] || categoryClasses["Desconocido"];
+
+  const header = document.createElement("div");
+  header.className = "modal-header";
+
+  const symbol = document.createElement("div");
+  symbol.className = `modal-symbol ${datos.clase}`;
+  symbol.textContent = e.Simbolo;
+
+  const title = document.createElement("div");
+  title.className = "modal-title";
+  title.innerHTML = `<h2>${e.Nombre}</h2><p>${e.Categoria}</p>`;
+
+  header.appendChild(symbol);
+  header.appendChild(title);
+
+  const grid = document.createElement("div");
+  grid.className = "info-grid";
+
+  const campos = [
+    { label: "N° Atómico", valor: e.Numero_Atomico },
+    { label: "Peso Atómico", valor: e.Peso_Atomico },
+    { label: "Período", valor: e.Periodo },
+    { label: "Grupo", valor: e.Grupo ?? "N/A" },
+    { label: "Descubridor", valor: e.Descubridor || "N/A" },
+    { label: "Año", valor: e.Anio_Descubrimiento },
+    { label: "Origen", valor: e.Origen },
+    { label: "Familia", valor: e.Familia },
+    { label: "Electronegatividad", valor: e.Electronegatividad ?? "N/A" },
+    {
+      label: "Config. Electrónica",
+      valor: e.Configuracion_Electronica ?? "N/A",
+    },
+    { label: "Estado de Oxidación", valor: e.Estado_Oxidacion ?? "N/A" },
+  ];
+
+  campos.forEach((campo) => {
+    const card = document.createElement("div");
+    card.className = "info-card";
+
+    const label = document.createElement("span");
+    label.textContent = campo.label;
+
+    const valor = document.createElement("strong");
+    valor.textContent = campo.valor;
+
+    card.appendChild(label);
+    card.appendChild(valor);
+    grid.appendChild(card);
+  });
+
+  modalBody.replaceChildren(header, grid);
+  modal.classList.add("active");
+  modal.setAttribute("aria-hidden", "false");
+  closeModal.focus();
+}
+
+// Event listeners
+searchInput.addEventListener("input", aplicarFiltros);
+categoryFilter.addEventListener("change", aplicarFiltros);
+originFilter.addEventListener("change", aplicarFiltros);
+periodFilter.addEventListener("change", aplicarFiltros);
+groupFilter.addEventListener("change", aplicarFiltros);
+
+clearFilters.addEventListener("click", () => {
+  searchInput.value = "";
+  categoryFilter.value = "";
+  originFilter.value = "";
+  periodFilter.value = "";
+  groupFilter.value = "";
+  aplicarFiltros();
+});
+
+// Cerrar modal
+closeModal.addEventListener("click", () => {
+  modal.classList.remove("active");
+  modal.setAttribute("aria-hidden", "true");
+});
+
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.classList.remove("active");
+    modal.setAttribute("aria-hidden", "true");
+  }
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && modal.classList.contains("active")) {
+    modal.classList.remove("active");
+    modal.setAttribute("aria-hidden", "true");
+  }
+});
+
+cargarElementos();

@@ -1,0 +1,231 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    animation: ccolor 20s linear infinite;
+    background-image: url('7.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-blend-mode: overlay; 
+    min-height: 100vh;
+    font-family: sans-serif;
+}
+
+@keyframes ccolor {
+    0% { background-color: #457fd6; }   
+    12.5% { background-color: #9b349b; }  
+    25% { background-color: #eba346; } 
+    37.5% { background-color: #493c91; }
+    50% { background-color: #1a008d; } 
+    62.5% { background-color: #5e002f; }
+    75% { background-color: #eba346; }
+    87.5% { background-color: #9b349b; }
+    100% { background-color: #457fd6; }
+}
+
+main {
+    min-height: 100vh;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.barra-filtros {
+    max-width: 1400px;
+    margin: 0 auto 25px auto;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    padding: 15px 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.control-filtro {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    min-width: 220px;
+}
+
+.control-filtro label {
+    color: #aaa;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+}
+
+.control-filtro select, 
+.control-filtro input {
+    background-color: #262626;
+    color: #ffffff;
+    border: 1px solid #444;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.control-filtro select:focus, 
+.control-filtro input:focus {
+    border-color: #00bcd4;
+}
+
+.elemento-opacado {
+    opacity: 0.12;
+    filter: grayscale(0.9);
+    pointer-events: none;
+    transform: scale(0.92) !important;
+}
+
+.tabla-periodica {
+    display: grid;
+    grid-template-columns: repeat(18, minmax(60px, 1fr));
+    grid-template-rows: repeat(7, minmax(70px, auto)) 25px repeat(2, minmax(70px, auto));
+    gap: 6px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.elemento-quimico {
+    grid-column: var(--col);
+    grid-row: var(--row);
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border: 1px solid #444;
+    border-radius: 6px;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, filter 0.2s, opacity 0.2s;
+    user-select: none;
+}
+
+.elemento-quimico:hover {
+    transform: scale(1.18);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
+    z-index: 10;
+    filter: brightness(1.25);
+}
+
+.numero-atomico {
+    font-size: 11px;
+    color: #bbb;
+}
+
+.simbolo {
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.nombre {
+    font-size: 10px;
+    text-align: center;
+    color: #ddd;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-transform: capitalize;
+}
+
+[data-categoria="no-metal"], 
+[data-categoria="reactive-nonmetal"] { background-color: #2d5a27; border-color: #3d7a35; }
+[data-categoria="gas-noble"] { background-color: #4a154b; border-color: #6b206d; }
+[data-categoria="metal-alcalino"] { background-color: #9e2a2b; border-color: #c13335; }
+[data-categoria="alcalinoterreo"] { background-color: #b5651d; border-color: #d47622; }
+[data-categoria="metaloide"] { background-color: #245255; border-color: #316f73; }
+[data-categoria="halogeno"] { background-color: #105b4e; border-color: #1a8270; }
+[data-categoria="metal-post-transicion"] { background-color: #2b4c7e; border-color: #3b68ab; }
+[data-categoria="metal-transicion"] { background-color: #5c5030; border-color: #7d6d42; }
+[data-categoria="lantanido"], [data-categoria="lanthanide"] { background-color: #004b49; border-color: #006966; }
+[data-categoria="actinido"], [data-categoria="actinide"] { background-color: #59253e; border-color: #7a3355; }
+[data-categoria="desconocido"], [data-categoria="categoria-desconocida"] { background-color: #3a3a3a; border-color: #555555; }
+
+.modal-oculto {
+    display: none;
+}
+
+.modal-visible {
+    display: flex;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contenido {
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    transition: background-color 0.25s ease-in-out;
+}
+
+.modal-contenido[data-categoria="no-metal"], .modal-contenido[data-categoria="reactive-nonmetal"] { background-color: #1c3d18; }
+.modal-contenido[data-categoria="gas-noble"] { background-color: #320e33; }
+.modal-contenido[data-categoria="metal-alcalino"] { background-color: #6e1d1e; }
+.modal-contenido[data-categoria="alcalinoterreo"] { background-color: #7d4412; }
+.modal-contenido[data-categoria="metaloide"] { background-color: #17383a; }
+.modal-contenido[data-categoria="halogeno"] { background-color: #0b3f36; }
+.modal-contenido[data-categoria="metal-post-transicion"] { background-color: #1d3457; }
+.modal-contenido[data-categoria="metal-transicion"] { background-color: #403821; }
+.modal-contenido[data-categoria="lantanido"], .modal-contenido[data-categoria="lanthanide"] { background-color: #003331; }
+.modal-contenido[data-categoria="actinido"], .modal-contenido[data-categoria="actinide"] { background-color: #3d192a; }
+.modal-contenido[data-categoria="desconocido"] { background-color: #242424; }
+
+#boton-cerrar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1;
+}
+
+#boton-cerrar:hover {
+    color: #ff4d4d;
+}
+
+#modal-informacion h2 {
+    margin-top: 0;
+    color: #ffffff;
+    font-size: 26px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+#modal-informacion hr {
+    border: 0;
+    border-top: 2px solid rgba(255, 255, 255, 0.25);
+    margin: 12px 0 18px 0;
+}
+
+#modal-informacion p {
+    margin-bottom: 11px;
+    font-size: 15px;
+    line-height: 1.4;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}

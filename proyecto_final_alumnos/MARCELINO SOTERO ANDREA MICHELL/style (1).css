@@ -1,0 +1,248 @@
+:root {
+    --bg-color: #030305;
+    --text-color: #ffffff;
+
+    /* PALETA: Colores Fluorescentes / Neón Eléctrico */
+    --alkali-metal: #ff0055;
+    --alkaline-earth-metal: #ff9900;
+    --lanthanide: #ccff00;
+    --actinide: #ff00ff;
+    --transition-metal: #00ffff;
+    --post-transition-metal: #00ff66;
+    --metalloid: #9933ff;
+    --polyatomic-nonmetal: #ffff00;
+    --diatomic-nonmetal: #33ffcc;
+    --noble-gas: #7000ff;
+    --unknown: #44444c;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "Playfair Display", Georgia, serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 25px;
+    width: 100%;
+    max-width: 600px;
+}
+
+header h1 {
+    margin: 0 0 15px 0;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #ffffff; 
+    background: linear-gradient(45deg, #00ffff, #ff00ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.5));
+}
+
+/* --- ESTILOS DE LA BARRA DE HERRAMIENTAS (BUSCADOR Y FILTRO) --- */
+.toolbar {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.toolbar input, .toolbar select {
+    background: rgba(20, 22, 30, 0.8);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 10px 15px;
+    font-family: "Playfair Display", serif;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.toolbar input { flex: 2; }
+.toolbar select { flex: 1; cursor: pointer; }
+
+.toolbar input:focus, .toolbar select:focus {
+    border-color: #00ffff;
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
+}
+
+#status-message {
+    color: var(--alkaline-earth-metal);
+    font-size: 1.1rem;
+    margin: 5px 0;
+}
+
+.table-container {
+    width: 100%;
+    max-width: 1440px;
+    overflow-x: auto;
+    padding: 10px;
+}
+
+.periodic-table {
+    display: grid;
+    grid-template-columns: repeat(18, minmax(35px, 1fr));
+    grid-template-rows: repeat(10, minmax(40px, 1fr));
+    gap: 10px; 
+    padding: 25px;
+    background: rgba(5, 5, 10, 0.8);
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.03);
+    min-width: 1350px;
+}
+
+/* --- RECUADROS CON RELLENO Y CONTORNOS FLUORESCENTES --- */
+.element-card {
+    border-radius: 14px;
+    padding: 10px 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    position: relative;
+    box-sizing: border-box;
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease, opacity 0.3s ease;
+}
+
+/* Efecto opacidad para elementos que no coinciden con la búsqueda */
+.element-card.dimmed {
+    opacity: 0.15;
+    pointer-events: none; /* Desactiva click en los filtrados */
+}
+
+.element-card:hover {
+    transform: scale(1.25) translateY(-5px);
+    z-index: 99;
+    outline: 2px solid #ffffff;
+}
+
+/* --- RELLENO, BORDES E ILUMINACIÓN POR CATEGORÍA --- */
+.alkali-metal, .alcalinos { 
+    background-color: rgba(255, 0, 85, 0.25) !important;
+    border: 2px solid var(--alkali-metal); 
+    box-shadow: inset 0 0 8px rgba(255, 0, 85, 0.2), 0 0 8px rgba(255, 0, 85, 0.2);
+}
+.alkali-metal:hover { box-shadow: 0 0 22px var(--alkali-metal); background-color: rgba(255, 0, 85, 0.45) !important; }
+
+.alkaline-earth-metal, .alcalinoterreos { 
+    background-color: rgba(255, 153, 0, 0.25) !important;
+    border: 2px solid var(--alkaline-earth-metal); 
+    box-shadow: inset 0 0 8px rgba(255, 153, 0, 0.2), 0 0 8px rgba(255, 153, 0, 0.2);
+}
+.alkaline-earth-metal:hover { box-shadow: 0 0 22px var(--alkaline-earth-metal); background-color: rgba(255, 153, 0, 0.45) !important; }
+
+.lanthanide, .lantanidos { 
+    background-color: rgba(204, 255, 0, 0.2) !important;
+    border: 2px solid var(--lanthanide); 
+    box-shadow: inset 0 0 8px rgba(204, 255, 0, 0.2), 0 0 8px rgba(204, 255, 0, 0.2);
+}
+.lanthanide:hover { box-shadow: 0 0 22px var(--lanthanide); background-color: rgba(204, 255, 0, 0.45) !important; }
+
+.actinide, .actinidos { 
+    background-color: rgba(255, 0, 255, 0.25) !important;
+    border: 2px solid var(--actinide); 
+    box-shadow: inset 0 0 8px rgba(255, 0, 255, 0.2), 0 0 8px rgba(255, 0, 255, 0.2);
+}
+.actinide:hover { box-shadow: 0 0 22px var(--actinide); background-color: rgba(255, 0, 255, 0.45) !important; }
+
+.transition-metal, .metales-de-transicion { 
+    background-color: rgba(0, 255, 255, 0.2) !important;
+    border: 2px solid var(--transition-metal); 
+    box-shadow: inset 0 0 8px rgba(0, 255, 255, 0.2), 0 0 8px rgba(0, 255, 255, 0.2);
+}
+.transition-metal:hover { box-shadow: 0 0 22px var(--transition-metal); background-color: rgba(0, 255, 255, 0.45) !important; }
+
+.post-transition-metal, .otros-metales { 
+    background-color: rgba(0, 255, 102, 0.2) !important;
+    border: 2px solid var(--post-transition-metal); 
+    box-shadow: inset 0 0 8px rgba(0, 255, 102, 0.2), 0 0 8px rgba(0, 255, 102, 0.2);
+}
+.post-transition-metal:hover { box-shadow: 0 0 22px var(--post-transition-metal); background-color: rgba(0, 255, 102, 0.45) !important; }
+
+.metalloid, .metaloides { 
+    background-color: rgba(153, 51, 255, 0.25) !important;
+    border: 2px solid var(--metalloid); 
+    box-shadow: inset 0 0 8px rgba(153, 51, 255, 0.2), 0 0 8px rgba(153, 51, 255, 0.2);
+}
+.metalloid:hover { box-shadow: 0 0 22px var(--metalloid); background-color: rgba(153, 51, 255, 0.45) !important; }
+
+.polyatomic-nonmetal, .no-metales-poliatomicos { 
+    background-color: rgba(255, 255, 0, 0.2) !important;
+    border: 2px solid var(--polyatomic-nonmetal); 
+    box-shadow: inset 0 0 8px rgba(255, 255, 0, 0.2), 0 0 8px rgba(255, 255, 0, 0.2);
+}
+.polyatomic-nonmetal:hover { box-shadow: 0 0 22px var(--polyatomic-nonmetal); background-color: rgba(255, 255, 0, 0.45) !important; }
+
+.diatomic-nonmetal, .no-metales-diatomicos { 
+    background-color: rgba(51, 255, 204, 0.2) !important;
+    border: 2px solid var(--diatomic-nonmetal); 
+    box-shadow: inset 0 0 8px rgba(51, 255, 204, 0.2), 0 0 8px rgba(51, 255, 204, 0.2);
+}
+.diatomic-nonmetal:hover { box-shadow: 0 0 22px var(--diatomic-nonmetal); background-color: rgba(51, 255, 204, 0.45) !important; }
+
+.noble-gas, .gases-nobles { 
+    background-color: rgba(112, 0, 255, 0.25) !important;
+    border: 2px solid var(--noble-gas); 
+    box-shadow: inset 0 0 8px rgba(112, 0, 255, 0.2), 0 0 8px rgba(112, 0, 255, 0.2);
+}
+.noble-gas:hover { box-shadow: 0 0 22px var(--noble-gas); background-color: rgba(112, 0, 255, 0.45) !important; }
+
+.desconocido, .unknown { border: 2px solid var(--unknown); background: rgba(50,50,50,0.2); }
+
+/* Textos */
+.element-number { font-size: 0.75rem; font-weight: 700; color: rgba(255, 255, 255, 0.5); }
+.element-symbol { font-size: 1.7rem; font-weight: 800; text-align: center; }
+.element-name { font-size: 0.7rem; font-weight: 500; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: rgba(255, 255, 255, 0.8); }
+
+/* --- VENTANA MODAL --- */
+.modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(2, 2, 4, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    display: flex; justify-content: center; align-items: center; z-index: 9999;
+}
+
+.modal.hidden { display: none !important; }
+
+.modal-content {
+    background-color: rgba(15, 17, 26, 0.65);
+    color: #ffffff;
+    padding: 35px 30px;
+    border-radius: 24px;
+    width: 90%; max-width: 550px;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+}
+
+.close-btn { position: absolute; top: 15px; right: 20px; font-size: 2.5rem; cursor: pointer; color: rgba(255, 255, 255, 0.4); line-height: 1; }
+.close-btn:hover { color: #ff0055; }
+.modal-header-block { text-align: center; margin-bottom: 25px; }
+.modal-header-block h2 { margin: 0; font-size: 2.2rem; font-weight: 800; }
+.modal-main-symbol { font-size: 4rem; font-weight: 900; margin: 15px 0 5px 0; display: inline-block; padding: 10px 45px; border-radius: 16px; background-color: rgba(0, 0, 0, 0.4); }
+
+/* RECUADROS RECTANGULARES DE INFORMACIÓN */
+.modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; text-align: left; max-height: 380px; overflow-y: auto; padding-right: 5px; }
+.modal-grid p { margin: 0; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.07); border-radius: 12px; padding: 12px 15px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; font-size: 0.95rem; }
+.modal-grid strong { color: #00ffff; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 5px; }
+.full-width { grid-column: span 2; }
+
+.modal-grid::-webkit-scrollbar { width: 6px; }
+.modal-grid::-webkit-scrollbar-track { background: transparent; }
+.modal-grid::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); border-radius: 10px; }

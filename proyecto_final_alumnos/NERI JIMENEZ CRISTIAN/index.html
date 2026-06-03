@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla Periódica Dinámica</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <main>
+        <h1 style="color: white; text-align: center; font-family: sans-serif; margin-bottom: 20px;">Tabla Periódica de los Elementos</h1>
+        
+        <div class="barra-filtros">
+            <div class="control-filtro">
+                <label for="filtro-categoria">Categoría o Familia:</label>
+                <select id="filtro-categoria">
+                    <option value="todos">Todas las familias</option>
+                    <option value="no-metal">No metales</option>
+                    <option value="gas-noble">Gases nobles</option>
+                    <option value="metal-alcalino">Metales alcalinos</option>
+                    <option value="alcalinoterreo">Alcalinotérreos</option>
+                    <option value="metaloide">Metaloides</option>
+                    <option value="halogeno">Halógenos</option>
+                    <option value="metal-post-transicion">Metales post transición</option>
+                    <option value="metal-transicion">Metales de transición</option>
+                    <option value="lantanido">Lantánidos</option>
+                    <option value="actinido">Actínidos</option>
+                    <option value="desconocido">Desconocido</option>
+                </select>
+            </div>
+
+            <div class="control-filtro">
+                <label for="filtro-grupo">Grupo:</label>
+                <select id="filtro-grupo">
+                    <option value="todos">Todos los grupos</option>
+                    <option value="1">Grupo 1</option>
+                    <option value="2">Grupo 2</option>
+                    <option value="3">Grupo 3</option>
+                    <option value="4">Grupo 4</option>
+                    <option value="5">Grupo 5</option>
+                    <option value="6">Grupo 6</option>
+                    <option value="7">Grupo 7</option>
+                    <option value="8">Grupo 8</option>
+                    <option value="9">Grupo 9</option>
+                    <option value="10">Grupo 10</option>
+                    <option value="11">Grupo 11</option>
+                    <option value="12">Grupo 12</option>
+                    <option value="13">Grupo 13</option>
+                    <option value="14">Grupo 14</option>
+                    <option value="15">Grupo 15</option>
+                    <option value="16">Grupo 16</option>
+                    <option value="17">Grupo 17</option>
+                    <option value="18">Grupo 18</option>
+                </select>
+            </div>
+
+            <div class="control-filtro">
+                <label for="buscar-nombre">Buscar Elemento:</label>
+                <input type="text" id="buscar-nombre" placeholder="Ej: Oxígeno / O">
+            </div>
+        </div>
+
+        <div class="tabla-periodica" id="tabla-contenedor"></div>
+    </main>
+
+    <div id="mi-modal" class="modal-oculto"></div>
+
+</body>
+<script src="scrip.js"></script>
+</html>
