@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla Periódica Interactiva</title>
+    <link rel="stylesheet" href="../../../../Working%20files/ALMA%20NATIVIDAD%20VENEGAS%20HERNANDEZ/Proyecto%20Final/style.css">
+</head>
+<body>
+
+    <header>
+        <h1 class="titulo-principal">TABLA PERIÓDICA DE LOS ELEMENTOS</h1>
+
+        <div class="controles-superiores">
+            <div class="control-btn search-btn">
+                <span class="icono">🔍</span>
+                <input
+                    type="text"
+                    id="buscador"
+                    placeholder="Buscar por nombre, símbolo o número..."
+                >
+            </div>
+
+            <div class="control-btn filter-btn">
+                <span class="icono">⚙️</span>
+                <select id="filtro-categoria">
+                    <option value="todos">Todas las categorías</option>
+                    <!-- Usamos palabras clave para que el .includes() de tu JS no falle -->
+                    <option value="no-metal">No Metales</option>
+                    <option value="noble">Gases Nobles</option>
+                    <option value="alcalino">Metales Alcalinos</option>
+                    <option value="alcalinoterreo">Metales Alcalinotérreos</option>
+                    <option value="metaloide">Metaloides</option>
+                    <option value="halogeno">Halógenos</option>
+                    <option value="transicion">Metales de Transición</option>
+                    <option value="post-transicion">Otros Metales</option>
+                    <option value="lantanido">Lantánidos</option>
+                    <option value="actinido">Actínidos</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="tabla-periodica" id="tabla"></div>
+    </main>
+
+    <div id="modal-detalle" class="modal hidden">
+        <div class="modal-contenido">
+            <span class="cerrar-btn">&times;</span>
+            <div id="detalle-elemento"></div>
+        </div>
+    </div>
+
+    <script src="../../../../Working%20files/ALMA%20NATIVIDAD%20VENEGAS%20HERNANDEZ/Proyecto%20Final/app.js"></script>
+</body>
+</html>

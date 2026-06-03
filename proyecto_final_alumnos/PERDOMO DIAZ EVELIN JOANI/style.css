@@ -1,0 +1,271 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ffd6e8, #d6e6ff);
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 900;
+    color: #020202;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #0e0d0d;
+}
+
+.buscador-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.buscador-container input,
+.buscador-container select {
+    padding: 12px 18px;
+    font-size: 15px;
+    border-radius: 12px;
+    border: none;
+    background: white;
+    color: #333;
+    margin: 5px;
+    outline: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.tabla-periodica {
+    display: grid;
+    grid-template-columns: repeat(18, minmax(55px, 1fr));
+    gap: 5px;
+    max-width: 1400px;
+    margin: auto;
+    padding-bottom: 50px;
+}
+
+/* CUANDO HAY FILTRO */
+.tabla-periodica.filtro-activo {
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    max-width: 1000px;
+    justify-content: center;
+}
+
+.elemento {
+    border-radius: 10px;
+    padding: 6px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.25s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 70px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.elemento:hover {
+    transform: scale(1.08);
+    z-index: 10;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+}
+
+.num-atomico {
+    font-size: 10px;
+    text-align: left;
+}
+
+.simbolo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nombre {
+    font-size: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* COLORES DE LA TABLA*/
+.elemento.no-metales, .elemento.no-metal, .elemento.otros-no-metales, .elemento.grupo-14, .elemento.grupo-15, .elemento.grupo-16 { background-color: #B8E0D2; }
+.elemento.gases-nobles, .elemento.gas-noble, .elemento.grupo-18 { background-color: #CDB4DB; }
+.elemento.metales-alcalinos, .elemento.metal-alcalino, .elemento.grupo-1 { background-color: #FFD6A5; }
+.elemento.alcalinoterreo, .elemento.metal-alcalinoterreo, .elemento.grupo-2 { background-color: #FDFFB6; }
+.elemento.metaloides, .elemento.metaloide, .elemento.grupo-13 { background-color: #A0E7E5}
+.elemento.halogenos, .elemento.halogeno, .elemento.grupo-17 { background-color: #BDE0FE; }
+.elemento.metales-post-transicion, .elemento.metal-post-transicion, .elemento.metal-transicion, .elemento.grupo-3, .elemento.grupo-4, .elemento.grupo-5, .elemento.grupo-6, .elemento.grupo-7, .elemento.grupo-8, .elemento.grupo-9, .elemento.grupo-10, .elemento.grupo-11, .elemento.grupo-12 { background-color: #CDEAC0; }
+.elemento.lantanidos, .elemento.lantanido { background-color: #d884a4; }
+.elemento.actinidos, .elemento.actinido { background-color: #FFC8DD; }
+.elemento.desconocido, .elemento.desconocido { background-color: #F9BEC7; }
+/* MODAL ANCHO TOTAL REDONDEADO DINÁMICO */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.modal-contenido {
+    width: 550px;
+    max-width: 92%;
+    max-height: 85vh;
+    overflow-y: auto;
+    border-radius: 24px;
+    padding: 35px 25px;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+}
+
+/* COLORES BASADOS EN CADA ELEMENTO */
+.modal-contenido.no-metales, .modal-contenido.no-metal, .modal-contenido.otros-no-metales, .modal-contenido.grupo-14, .modal-contenido.grupo-15, .modal-contenido.grupo-16 { background-color: #B8E0D2; }
+.modal-contenido.gases-nobles, .modal-contenido.gas-noble, .modal-contenido.grupo-18 { background-color: #CDB4DB; }
+.modal-contenido.metales-alcalinos, .modal-contenido.metal-alcalino, .modal-contenido.grupo-1 { background-color: #FFD6A5; }
+.modal-contenido.alcalinoterreo, .modal-contenido.metal-alcalinoterreo, .modal-contenido.grupo-2 { background-color: #FDFFB6; }
+.modal-contenido.metaloides, .modal-contenido.metaloide, .modal-contenido.grupo-13 { background-color: #A0E7E5; }
+.modal-contenido.halogenos, .modal-contenido.halogeno, .modal-contenido.grupo-17 { background-color: #BDE0FE; }
+.modal-contenido.metales-post-transicion, .modal-contenido.metal-post-transicion, .modal-contenido.metal-transicion, .modal-contenido.grupo-3, .modal-contenido.grupo-4, .modal-contenido.grupo-5, .modal-contenido.grupo-6, .modal-contenido.grupo-7, .modal-contenido.grupo-8, .modal-contenido.grupo-9, .modal-contenido.grupo-10, .modal-contenido.grupo-11, .modal-contenido.grupo-12 { background-color: #CDEAC0; }
+.modal-contenido.lantanidos, .modal-contenido.lantanido { background-color: #FFC8DD; }
+.modal-contenido.actinidos, .modal-contenido.actinido { background-color: #F9BEC7; }
+.modal-contenido.desconocido, .modal-contenido.desconocido { background-color: #82c8dd; }
+
+
+.cerrar-btn {
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #444;
+    transition: color 0.2s;
+}
+
+.cerrar-btn:hover {
+    color: black;
+}
+
+.header-modal {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #222;
+}
+
+.numero-modal {
+    font-size: 16px;
+    font-weight: 600;
+    opacity: 0.7;
+    margin-bottom: 5px;
+}
+
+.simbolo-grande {
+    font-size: 75px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 10px;
+    color: #111;
+}
+
+.titulo-modal {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    color: #111;
+}
+
+/* SECCIÓN CORREGIDA: CÁPSULA OVALADA BLANCA AL ESTILO DE LA FOTO 1 */
+.categoria-badge-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.categoria-badge {
+    background-color: rgba(255, 255, 255, 0.75);
+    padding: 6px 20px;
+    border-radius: 25px; /* Bordes ovalados perfectos */
+    font-size: 13px;
+    font-weight: 600;
+    color: #444;
+    box-shadow: 0 2px 6px rgba(138, 0, 0, 0);
+    display: inline-block;
+}
+
+/* Rejilla de tarjetas blancas individuales */
+.contenedor-detalles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 10px;
+}
+
+/* TARJETA DE INFORMACION */
+.card-detalle { 
+    background-color: rgb(238, 238, 238);
+    padding: 14px 16px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: left;
+}
+
+/* TITULOS DE INFORMACION */
+.titulo-detalle {
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #181717;
+    letter-spacing: 0.5px;
+}
+
+/* Informacion tarjeta  */
+.valor-detalle {
+    font-size: 14px;
+    font-weight: 700;
+    color: #000000;
+    word-break: break-word;
+}
+
+.error-api {
+    text-align: center;
+    color: rgb(255, 20, 20);
+    grid-column: span 18;
+}
+
+/* RESPONSIVE */
+@media(max-width: 900px){
+    .tabla-periodica {
+        grid-template-columns: repeat(18, minmax(40px, 1fr));
+        gap: 3px;
+    }
+    .elemento {
+        height: 60px;
+    }
+    .simbolo {
+        font-size: 15px;
+    }
+    .nombre {
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 500px) {
+    .contenedor-detalles {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<html lang="es"> 
+<head>   
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla Periódica</title> 
+    <link rel="stylesheet" href="../../../../Working%20files/EVELIN%20JOANI%20PERDOMO%20DIAZ/Proyecto%20Final/style.css"> 
+</head>
+<body>
+    <header> 
+        <h1>Tabla Periódica de los Elementos</h1>
+        <h2>EVELIN JOANI PERDOMO DIAZ </h2>
+        <div class="buscador-container">
+            <input type="text" id="buscador" placeholder="Buscar por nombre, símbolo o número...">
+            <select id="filtro-categoria">
+                <option value="todos">Todas las categorías</option>
+                <option value="no-metal">No Metales</option>
+                <option value="noble">Gases Nobles</option>
+                <option value="alcalino">Metales Alcalinos</option>
+                <option value="alcalinoterreo">Metales Alcalinotérreos</option>
+                <option value="metaloide">Metaloides</option>
+                <option value="halogeno">Halógenos</option>
+                <option value="transicion">Metales de Transición</option>
+                <option value="post-transicion">Otros Metales</option>
+                <option value="lantanido">Lantánidos</option>
+                <option value="actinido">Actínidos</option>
+            </select>
+        </div>
+    </header>
+
+    <main>
+        <div class="tabla-periodica" id="tabla"></div> 
+    </main>
+
+    <div id="modal-detalle" class="modal hidden">
+        <div class="modal-contenido">
+            <span class="cerrar-btn">&times;</span>
+            <div id="detalle-elemento"></div>
+        </div>
+    </div>
+
+    <script src="../../../../Working%20files/EVELIN%20JOANI%20PERDOMO%20DIAZ/Proyecto%20Final/script.js"></script>
+</body>
+</html>

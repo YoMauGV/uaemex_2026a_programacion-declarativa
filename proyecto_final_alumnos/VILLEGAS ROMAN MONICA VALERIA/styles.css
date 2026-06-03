@@ -1,0 +1,128 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+#table-container {
+    display: grid;
+    grid-template-columns: repeat(18, minmax(60px, 1fr));
+    grid-gap: 4px;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.element {
+    border: 1px solid #e0e0e0;
+    padding: 6px 4px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    background-color: #fff;
+    user-select: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+
+.element:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+    z-index: 10;
+    border-color: #999;
+}
+
+.element .num {
+    font-size: 0.7rem;
+    color: #666;
+    text-align: left;
+    margin-bottom: 2px;
+    padding-left: 2px;
+}
+
+.element .sym {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+}
+
+.element .name {
+    font-size: 0.65rem;
+    color: #555;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.metal-alcalino         { background-color: #fbc4c4 !important; }
+.metal-alcalinoterreo   { background-color: #b4c4ec !important; }
+.metal-transicion       { background-color: #adc4ec !important; }
+.lantanido              { background-color: #94ecdc !important; }
+.actinido               { background-color: #a4ecd4 !important; }
+.metal                  { background-color: #ccd4ec !important; }
+.metaloide              { background-color: #ccd4bc !important; }
+.no-metal               { background-color: #ecec9c !important; }
+.halogeno               { background-color: #ecbcbc !important; }
+.gas-noble              { background-color: #fce4cc !important; }
+
+.lanthanide-series-start {
+    margin-top: 20px;
+}
+
+.filter-container {
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 12px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.filter-label {
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-right: 10px;
+    color: #444;
+}
+
+.btn-filter {
+    border: 1px solid #dcdcdc;
+    padding: 6px 14px;
+    margin: 3px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.2s ease;
+    background-color: #fff;
+    color: #333;
+}
+
+.btn-filter:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+    border-color: #777;
+}
+
+.btn-filter.f-alcalino       { background-color: #fbc4c4; }
+.btn-filter.f-alcalinoterreo { background-color: #b4c4ec; }
+.btn-filter.f-transicion     { background-color: #adc4ec; }
+.btn-filter.f-lantanido      { background-color: #94ecdc; }
+.btn-filter.f-actinido       { background-color: #a4ecd4; }
+.btn-filter.f-metal          { background-color: #ccd4ec; }
+.btn-filter.f-metaloide      { background-color: #ccd4bc; }
+.btn-filter.f-no-metal       { background-color: #ecec9c; }
+.btn-filter.f-halogeno       { background-color: #ecbcbc; }
+.btn-filter.f-gas-noble      { background-color: #fce4cc; }
+
+.element.dimmed {
+    opacity: 0.12;
+    transform: scale(0.95);
+    pointer-events: none; 
+}

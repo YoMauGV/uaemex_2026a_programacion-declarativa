@@ -1,0 +1,244 @@
+:root {
+    --bg-color: #0d1527;
+    --card-bg: #344980;
+    --text-color: #fcf7f7;
+    --border-default: #0e1b3500;
+    
+    --bg-no-metal: #22c55e;
+    --bg-gas-noble: #3b82f6;
+    --bg-metal-alcalino: #ef4444;
+    --bg-alcalinoterreo: #f97316;
+    --bg-metaloide: #eab308;
+    --bg-halogeno: #06b6d4;
+    --bg-metal-post-transicion: #0f5c42;
+    --bg-metal-transicion: #1e3a8a;
+    --bg-lantanido: #a855f7;
+    --bg-actinido: #ec4899;
+    --bg-desconocido: #68696b;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    color: #cbd5e1;
+}
+
+.element-detail {
+    background-color: var(--current-color, var(--card-bg));
+    border: 1px solid var(--border-default);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+    display: flex;
+    gap: 40px; 
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.detail-main {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#detail-number {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    text-align: left;
+}
+
+#detail-symbol {
+    font-size: 4rem;
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+#detail-name {
+    font-size: 1.2rem;
+    color: #e2e8f0;
+    margin: 0;
+}
+
+.detail-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.detail-info p {
+    margin: 0;
+    font-size: 1rem;
+    color: #cbd5e1;
+}
+
+.detail-info strong {
+    color: #94a3b8;
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+/* Control de Vistas */
+.view-container {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hidden {
+    display: none !important;
+    opacity: 0;
+}
+
+/* Rejilla de la Tabla Principal (Filas del 1 al 7) */
+.periodic-table {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    grid-template-rows: repeat(7, 70px);
+    gap: 6px;
+}
+
+/* Rejilla del Bloque F (2 filas x 14 columnas) */
+.bloquef-table {
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    grid-template-rows: repeat(2, 70px);
+    gap: 6px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    color: #94a3b8;
+    margin-bottom: 15px;
+}
+
+/* Botones Interactivos */
+.button-container {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.toggle-btn {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.toggle-btn:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.toggle-btn:active {
+    transform: translateY(0);
+}
+
+/* Celdas de los Elementos */
+.element {
+    background-color: rgba(22, 34, 63, 0.5);
+    border: 1px solid var(--border-default);
+    border-radius: 6px;
+    padding: 6px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.element:hover {
+    transform: scale(1.2);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.7);
+    z-index: 50;
+    border-color: #d4d3d37a;
+}
+
+.element .num {
+    font-size: 0.75rem;
+    text-align: left;
+    color: rgb(245, 244, 244);
+}
+
+.element .sym {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 2px 0;
+}
+
+.element .name {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.7);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Clases de colores completos */
+.element.no-metal { background-color: var(--bg-no-metal); }
+.element.gas-noble { background-color: var(--bg-gas-noble); }
+.element.metal-alcalino { background-color: var(--bg-metal-alcalino); }
+.element.alcalinoterreo { background-color: var(--bg-alcalinoterreo); }
+.element.metaloide { background-color: var(--bg-metaloide); }
+.element.halogeno { background-color: var(--bg-halogeno); }
+.element.metal-post-transicion { background-color: var(--bg-metal-post-transicion); }
+.element.metal-transicion { background-color: var(--bg-metal-transicion); }
+.element.lantanido { background-color: var(--bg-lantanido); }
+.element.actinido { background-color: var(--bg-actinido); }
+.element.desconocido { background-color: var(--bg-desconocido); }
+/* --- ESTILOS DEL BUSCADOR --- */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+#element-search {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    background-color: rgba(22, 34, 63, 0.8);
+    border: 2px solid #344980;
+    border-radius: 8px;
+    color: #fcf7f7;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#element-search:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+}
+
+/* Clase para ocultar celdas al filtrar */
+.element.search-hidden {
+    display: none !important;
+}

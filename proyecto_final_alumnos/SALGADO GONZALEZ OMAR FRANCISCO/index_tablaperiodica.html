@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tabla periódica</title>
+    <!-- enlace al CSS -->
+    <link rel="stylesheet" href="../../../../Working%20files/OMAR%20FRANCISCO%20SALGADO%20GONZALEZ/Proyecto%20Final/tablaperiodica.css" />
+  </head>
+  <body>
+    <h1>Tabla periódica</h1>
+
+    <!-- Buscador -->
+    <div class="buscador">
+      <input type="text" id="buscador" placeholder="Buscar Elemento" />
+      <button type="button" onclick="buscarElemento()">Buscar</button>
+    </div>
+
+    <!-- Filtros -->
+    <div class="filtros">
+      <button onclick="filtrarCategoria('metal-alcalino')">
+        Metales alcalinos
+      </button>
+      <button onclick="filtrarCategoria('metal-alcalinoterreo')">
+        Alcalinotérreos
+      </button>
+      <button onclick="filtrarCategoria('metales-de-transicion')">
+        Metales de transición
+      </button>
+      <button onclick="filtrarCategoria('metaloide')">Metaloides</button>
+      <button onclick="filtrarCategoria('no-metal')">No metales</button>
+      <button onclick="filtrarCategoria('halogeno')">Halógenos</button>
+      <button onclick="filtrarCategoria('gas-noble')">Gases nobles</button>
+      <button onclick="filtrarCategoria('lantanido')">Lantánidos</button>
+      <button onclick="filtrarCategoria('actinido')">Actínidos</button>
+      <button onclick="mostrarTabla(elementos)">Mostrar todos</button>
+    </div>
+
+    <!-- Contenedor de la tabla -->
+    <div class="tabla-periodica"></div>
+
+    <!-- Modal para mostrar detalles del elemento -->
+    <div id="modal-detalle" class="modal-hidden">
+      <div class="modal-contenido">
+        <!-- Botón cerrar -->
+        <button id="modal-cerrar" class="modal-cerrar">X</button>
+
+        <!-- Encabezado con nombre y color -->
+        <div id="modal-header" class="modal-header">Nombre del elemento</div>
+
+        <!-- Cuerpo del modal -->
+        <div class="modal-body">
+          <div class="modal-info">
+            <!-- Columna izquierda: detalles -->
+            <div class="modal-detalles">
+              <h2 id="detalle-simbolo"></h2>
+              <p id="detalle-nombre"></p>
+              <p id="detalle-numero"></p>
+              <p id="detalle-categoria"></p>
+              <p id="detalle-peso"></p>
+              <p id="detalle-descubridor"></p>
+              <p id="detalle-config"></p>
+            </div>
+
+            <!-- Columna derecha: imagen -->
+            <div class="modal-imagen">
+              <img id="detalle-imagen" src="" alt="Imagen del elemento" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Leyenda de categorías -->
+    <div class="leyenda">
+      <h3>Leyenda de categorías</h3>
+      <ul>
+        <li><span class="metal-alcalino ejemplo"></span> Metales alcalinos</li>
+        <li>
+          <span class="metal-alcalinoterreo ejemplo"></span> Alcalinotérreos
+        </li>
+        <li>
+          <span class="metales-de-transicion ejemplo"></span> Metales de
+          transición
+        </li>
+        <li><span class="metaloide ejemplo"></span> Metaloides</li>
+        <li><span class="no-metal ejemplo"></span> No metales</li>
+        <li><span class="halogeno ejemplo"></span> Halógenos</li>
+        <li><span class="gas-noble ejemplo"></span> Gases nobles</li>
+        <li><span class="lantanido ejemplo"></span> Lantánidos</li>
+        <li><span class="actinido ejemplo"></span> Actínidos</li>
+      </ul>
+    </div>
+
+    <!-- Cargar el JS -->
+    <script src="../../../../Working%20files/OMAR%20FRANCISCO%20SALGADO%20GONZALEZ/Proyecto%20Final/tablaperiodicaJS.js"></script>
+  </body>
+</html>

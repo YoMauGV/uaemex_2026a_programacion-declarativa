@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla Periódica Interactiva</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Tabla Periódica de los Elementos</h1>
+<div class="search-container">
+    <input type="text" id="element-search" placeholder=" Buscar elemento por nombre, símbolo o número...">
+</div>
+        <div class="element-detail" id="element-detail">
+            <div class="detail-main">
+                <span id="detail-number">Número</span>
+                <h2 id="detail-symbol">Selecciona</h2>
+                <p id="detail-name">un elemento</p>
+            </div>
+            <div class="detail-info">
+                <p><strong>Masa Atómica:</strong> <span id="detail-mass">-</span></p>
+                <p><strong>Configuración Electrónica:</strong> <span id="detail-config">-</span></p>
+                <p><strong>Categoría:</strong> <span id="detail-category">-</span></p>
+            </div>
+        </div>
+
+        <div class="view-container" id="main-view">
+            <div class="periodic-table" id="periodic-table"></div>
+            <div class="button-container">
+                <button class="toggle-btn" id="go-to-bloquef">Ver Lantánidos y Actínidos →</button>
+            </div>
+        </div>
+
+        <div class="view-container hidden" id="bloquef-view">
+            <h3 class="section-title">Elementos de Transición Interna (Bloque F)</h3>
+            <div class="bloquef-table" id="bloquef-table"></div>
+            <div class="button-container">
+                <button class="toggle-btn" id="back-to-main">← Volver a la Tabla Principal</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scrip.js"></script>
+</body>
+</html>

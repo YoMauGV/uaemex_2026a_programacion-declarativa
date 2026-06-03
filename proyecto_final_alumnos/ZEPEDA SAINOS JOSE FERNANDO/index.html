@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabla Periódica</title>
+    <link rel="stylesheet" href="../../../../Working%20files/JOSE%20FERNANDO%20ZEPEDA%20SAINOS/Proyecto%20Final/styles.css">
+</head>
+<body>
+
+    <h1>Tabla Periódica</h1>
+    
+<div class="filtros-container">
+    <button class="btn-filtro active" onclick="filtrarCategoria('todos')">Todos</button>
+    <button class="btn-filtro" onclick="filtrarCategoria('no-metal')">No Metales</button>
+    <button class="btn-filtro" onclick="filtrarCategoria('gas-noble')">Gases Nobles</button>
+    <button class="btn-filtro" onclick="filtrarCategoria('metal-alcalino')">Alcalinos</button>
+    <button class="btn-filtro" onclick="filtrarCategoria('metal-transicion')">Transición</button>
+    <button class="btn-filtro" onclick="filtrarCategoria('metal-post-transicion')">metal-post-transicion</button>
+    <button class="btn-filtro" onclick="filtrarCategoria('metaloide')">Metaloides</button>
+    <button class="btn-filtro" onclick="filtrarCategoria('desconocido')">desconocido</button>
+    <button class="btn-filtro" onclick="filtrarCategoria('actinido')">actinido</button>
+    <button class="btn-filtro" onclick="filtrarCategoria('lantanido')">lantanido</button>
+    <button class="btn-filtro" onclick="filtrarCategoria('halogeno')">halogeno</button>
+    <button class="btn-filtro" onclick="filtrarCategoria('alcalinoterreo')">Alcalinoterreo</button>
+
+</div>
+
+
+    <main id="tabla" class="grid-container"></main>
+
+    <dialog id="modal-elemento">
+        <div id="info-elemento"></div>
+        <button id="cerrar-btn">Cerrar</button>
+    </dialog>
+
+    <script src="../../../../Working%20files/JOSE%20FERNANDO%20ZEPEDA%20SAINOS/Proyecto%20Final/script.js"></script>
+</body>
+</html>

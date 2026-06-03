@@ -1,0 +1,219 @@
+/* ░░░ Estilos generales ░░░ */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.tabla-periodica {
+  display: grid;
+  grid-template-columns: repeat(18, 60px); /* 18 columnas */
+  grid-template-rows: repeat(
+    9,
+    60px
+  ); /* 9 filas (7 + lantánidos + actínidos) */
+  gap: 4px;
+  justify-content: center;
+}
+
+/* ░░░ Estilos de cada celda ░░░ */
+.elemento {
+  border: 1px solid #999;
+  border-radius: 4px;
+  padding: 4px;
+  text-align: center;
+  position: relative; /* necesario para colocar número en esquina */
+  font-size: 12px;
+  cursor: pointer;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Número atómico en esquina superior derecha */
+.elemento .numero {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+/* Símbolo químico grande */
+.elemento .simbolo {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+/* Nombre del elemento */
+.elemento .nombre {
+  font-size: 10px;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+/* Celda resaltada al buscar o seleccionar */
+.elemento.resaltado {
+  outline: 3px solid #8b4af3;
+  transform: scale(1.1);
+  z-index: 2;
+}
+
+/* ░░░ Colores por categoría ░░░ */
+.metal-alcalino {
+  background: #ffcc80;
+} /* Metales alcalinos */
+.metal-alcalinoterreo {
+  background: #ffd54f;
+} /* Alcalinotérreos */
+.metales-de-transicion {
+  background: #ffab91;
+} /* Metales de transición */
+.metaloide {
+  background: #c5e1a5;
+} /* Metaloides */
+.no-metal {
+  background: #b3e5fc;
+} /* No metales */
+.halogeno {
+  background: #f8bbd0;
+} /* Halógenos */
+.gas-noble {
+  background: #9bfffa;
+} /* Gases nobles */
+.lantanido {
+  background: #b4e45c;
+} /* Lantánidos */
+.actinido {
+  background: #5a8a0d;
+} /* Actínidos */
+
+/* ░░░ Leyenda de categorías ░░░ */
+.leyenda {
+  margin-top: 20px;
+  font-size: 14px;
+}
+.leyenda ul {
+  list-style: none;
+  padding: 0;
+}
+.leyenda li {
+  margin: 6px 0;
+  display: flex;
+  align-items: center;
+}
+.leyenda .ejemplo {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  border: 1px solid #333;
+}
+
+/* ░░░ Modal ░░░ */
+/* Contenedor principal */
+#modal-detalle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* fondo oscuro */
+  display: none; /* oculto por defecto */
+  justify-content: center; /* centra horizontalmente */
+  align-items: center; /* centra verticalmente */
+}
+
+/* Caja del modal */
+.modal-contenido {
+  background: #e5ffbb;
+  width: 600px; /* ancho grande */
+  max-width: 90%;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Encabezado del modal */
+.modal-header {
+  padding: 16px;
+  color: #000;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Cuerpo del modal */
+.modal-body {
+  padding: 16px;
+}
+
+/* División en dos columnas */
+.modal-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.modal-detalles {
+  flex: 1;
+}
+.modal-imagen {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-imagen img {
+  max-width: 100%;
+  max-height: 200px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+}
+
+/* Botón cerrar */
+.modal-cerrar {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  background: #eee;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.buscador {
+  margin: 20px 0;
+}
+.buscador input {
+  padding: 8px;
+  margin-left: 6px;
+  font-size: 14px;
+  background: #000000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.buscador button :hover {
+  background: #357ab8;
+}
+
+.filtros {
+  margin: 20px 0;
+}
+
+.filtros button {
+  padding: 6px 10px;
+  margin: 4px;
+  font-size: 12px;
+  border: 1px solid #9a25d1;
+  border-radius: 15px;
+  cursor: pointer;
+  background: #b3c592;
+}
+
+.filtros button:hover {
+  background: #52700c;
+}
